@@ -25,4 +25,8 @@
 
 [Fredoka](https://fonts.google.com/specimen/Fredoka)
 
+### Wireframe Miro
+
+[Clostore](https://miro.com/app/board/uXjVLJPWL2s=/?share_link_id=406764577758)
+
 #### Máximo Rubén Ibarra Vargas 

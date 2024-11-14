@@ -4,8 +4,6 @@
  - Soy Máximo Ibarra, un estudiante de 22 años en mi camino a volverme un desarrollador web profesional.
  
 
-![]()
-
 ### Paginas de referencia
 
 - [MercadoLibre](https://www.mercadolibre.com.ar/)

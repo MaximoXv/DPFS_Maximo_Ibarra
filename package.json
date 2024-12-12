@@ -1,0 +1,15 @@
+{
+  "name": "dpfs_maximo_ibarra",
+  "version": "1.0.0",
+  "description": "- Este proyecto va destinado a la venta de ropa para niños, adolecentes y adultos en Argentina.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

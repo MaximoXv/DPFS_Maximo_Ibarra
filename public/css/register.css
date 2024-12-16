@@ -33,7 +33,7 @@
     justify-content: center;
 }
 
-._body ._main ._login{
+._body ._main ._register{
     background-color: hsla(0, 0%, 100%, 0.438);
     backdrop-filter: blur(30px);
     /* background-color: var(--white-color); */
@@ -46,53 +46,64 @@
     border-radius: 20px;
 }
 
-._body ._main ._login ._titulo-login{
+._body ._main ._register ._titulo-register{
     font-size: 2rem;
     text-align: center;
     margin: 0;
 }
-._body ._main ._login ._label-email,._body ._main ._login ._label-password{
+._body ._main ._register ._label-email,._body ._main ._register ._label-password{
     font-size: 0.8rem;
     color: var(--black-color);
 }
-._body ._main ._login ._input-email,._body ._main ._login ._input-password{
+._body ._main ._register ._input-email,._body ._main ._register ._input-password{
     font-size: 1.2rem;
     border-radius: 5px;
     border: 1px solid var(--black-color);
 }
 
-._body ._main ._login ._input-email:focus,._body ._main ._login ._input-password:focus{
+._body ._main ._register ._input-email:focus,._body ._main ._register ._input-password:focus{
     outline: none;
 }
 
 
-._body ._main ._login ._link-olvidaste{
+._body ._main ._register ._link-olvidaste{
     text-align: end;
     font-size: 0.8rem;
     color: var(--primary-color);
 }
-._body ._main ._login ._boton-ingresar{
+._body ._main ._register ._boton-registrar{
     font-size: 1rem;
     padding: 5px 0;
     background-color: var(--black-color);
     color: var(--white-color);
     border-radius: 5px;
+    transition: all 0.3s;
+    border: 1px solid var(--black-color);
+
 }
-._body ._main ._login ._texto-o{
+
+._body ._main ._register ._boton-registrar:hover{
+    background-color: var(--white-color);
+    color: var(--black-color);
+    border: 1px solid var(--white-color);
+    cursor: pointer;
+}
+
+._body ._main ._register ._texto-o{
     font-size: 0.8rem;
     text-align: center;
 }
-._body ._main ._login ._google{
+._body ._main ._register ._google{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     position: relative;
 }
-._body ._main ._login ._google ._boton-google{
+._body ._main ._register ._google ._boton-google{
     padding: 5px 0;
     border-radius: 5px;
-
+    gap: 10px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -100,26 +111,48 @@
     font-size: 1rem;
     background-color: var(--white-color);
     border: 1px solid var(--black-color);
-
+    transition: all 0.3s;
 }
-._body ._main ._login ._google ._boton-google ._imagen-google{
+
+._body ._main ._register ._google ._boton-google:hover{
+    background-color: var(--black-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+._body ._main ._register ._google ._boton-google ._imagen-google{
     width: 20px;
     height: 20px;
     border-radius: 50%;
 }
 
-._body ._main ._login ._texto-nuevo{
+._body ._main ._register ._texto-nuevo{
     text-align: center;
     font-size: 0.8rem;
 }
 
-._body ._main ._login ._texto-nuevo ._link-nuevo{
+._body ._main ._register ._texto-nuevo ._link-nuevo{
     color: var(--primary-color);
 }
 
-._body ._main ._login ._terminos-y-condiciones{
+._body ._main ._register ._terminos-y-condiciones{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+@media (max-width: 576px){
+
+    ._body ._main ._register{
+        width: 90%;
+    }
+    }
+    
+    @media (min-width: 501px) and (max-width: 1024px){
+    ._body ._main ._register{
+        width: 50%;
+    }
+    
+    
+    }
+    

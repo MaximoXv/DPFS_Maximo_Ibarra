@@ -29,4 +29,8 @@
 
 [Clostore](https://miro.com/app/board/uXjVLJPWL2s=/?share_link_id=406764577758)
 
+### Trello
+
+[Trello](https://trello.com/b/emik3fvF/dpfsmaximoibarra)
+
 #### Máximo Rubén Ibarra Vargas 

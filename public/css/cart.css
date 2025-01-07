@@ -121,8 +121,41 @@
 }
 
 ._body ._main{
-    
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
+
+._body ._main ._section-1{
+    width: 80%;
+}
+
+._body ._main ._section-1 ._additional-functions{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+._body ._main ._section-1 ._additional-functions ._section-address{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    background-color: #4177eb;
+}
+
+._body ._main ._section-1 ._additional-functions ._section-pay-method{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+._body ._main ._section-2{
+    width: 20%;
+}
+
 
 
 

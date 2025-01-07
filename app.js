@@ -5,6 +5,7 @@ const port = 3000;
 
 const indexRouter = require("./routes/index.routes");
 const usersRouter = require("./routes/users.routes");
+const productsRouter = require("./routes/products.routes");
 
 //view engine
 app.set("view engine", "ejs")
@@ -17,6 +18,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/",indexRouter)
 app.use("/users",usersRouter)
+app.use("/products",productsRouter)
 
 
 app.listen(port, ()=>{

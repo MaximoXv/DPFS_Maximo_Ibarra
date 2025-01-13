@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/fontawesome/fontawesome-free-6.6.0-web/css/all.min.css">
-    <script src="/fontawesome/fontawesome-free-6.6.0-web/js/all.min.js"></script>
-    <title>Login</title>
-    <link rel="stylesheet" href="/css/login.css">
-</head>
-<body class="_body">
-    <main class="_main">
-        <section class="_login">
-            <h1 class="_titulo-login">Login</h1>
-            <label class="_label-email" for="email">Usuario o email</label>
-            <input class="_input-email" type="email" name="email" id="email">
-            <label class="_label-password" for="password">Contraseña</label>
-            <input class="_input-password" type="password" name="password" id="password">
-            <a class="_link-olvidaste" href="/">Olvidaste tu contraseña?</a>
-            <button class="_boton-ingresar">Ingresar</button>
-            <span class="_texto-o">o</span>
-            <div class="_google">
-                
-                <button class="_boton-google"><img class="_imagen-google" src="/images/logo_google.jpg" alt=""> Ingresar con Google</button>
-            </div>
-            <span class="_texto-nuevo">Eres nuevo? <a class="_link-nuevo" href="/users/register">Crea una cuenta</a></span>
-        </section>
+<html lang="es">
+  <%- include("./partials/head.ejs", {style: "login", title: "Iniciar Sesion"})
+  %>
 
+  <body class="_body">
+    <main class="_main">
+      <section class="_login">
+        <h1 class="_titulo-login">Login</h1>
+        <label class="_label-email" for="email">Usuario o email</label>
+        <input class="_input-email" type="email" name="email" id="email" />
+        <label class="_label-password" for="password">Contraseña</label>
+        <input
+          class="_input-password"
+          type="password"
+          name="password"
+          id="password"
+        />
+        <a class="_link-olvidaste" href="/">Olvidaste tu contraseña?</a>
+        <button class="_boton-ingresar">Ingresar</button>
+        <span class="_texto-o">o</span>
+        <div class="_google">
+          <button class="_boton-google">
+            <img class="_imagen-google" src="/images/logo_google.jpg" alt="" />
+            Ingresar con Google
+          </button>
+        </div>
+        <span class="_texto-nuevo"
+          >Eres nuevo?
+          <a class="_link-nuevo" href="/users/register"
+            >Crea una cuenta</a
+          ></span
+        >
+      </section>
     </main>
-    
-</body>
+  </body>
 </html>

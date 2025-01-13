@@ -1,136 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/fontawesome/fontawesome-free-6.6.0-web/css/all.min.css">
-    <script src="/fontawesome/fontawesome-free-6.6.0-web/js/all.min.js"></script>
-    <title>Carrito</title>
-    <link rel="stylesheet" href="/css/cart.css">
-</head>
-<body class="_body">
-    <header class="_header">
-        <nav class="_nav-bar">
-            <a href="/">
-                <img src="/info/design/logo.jpg" alt="">
-            </a>
-            <div class="_buscador">
-                <input class="_buscador-input" type="text" name="" id="" placeholder="Buscar...">
-                <i class="fa-solid fa-magnifying-glass _icon"></i>
-            </div>
-            <div class="_nav-bar-buttons">
-                <div class="_nav-bar-login">
-                    <i class="fa-solid fa-user ._icon"></i>
-                    <span class="_ingresar">Ingresar</span>
-                </div>
-                <i class="fa-solid fa-cart-shopping ._icon"></i>
-            </div>
-        </nav>
-    </header>
+  <%- include("./partials/head.ejs", {style: "cart", title: "Carrito"}) %>
+
+  <body class="_body">
+    <%- include("./partials/header.ejs") %>
     <main class="_main">
-        <section class="_section-1">
-            <div class="_additional-functions">
-                <div class="_section-address">
-                    <span><i class="fa-solid fa-location-dot"></i></span>
-                    <span>No hay ubicaciones agregadas</span>
-                    <button class="_button-address">Agregar ubicación</button>
-                </div>
-                <div class="_section-pay-method">
-                    <div class="_header-pay-method">
-                        <h2 class="_title-pay-method">Elige como pagar</h2>
-                        <button class="_button-new-pay-method">Añadir nuevo metodo +</button>
-                    </div>
-                    <div class="_main-pay-method">
-                        <div class="_card">
-                            <div class="_card-data">
-                                <img class="_card-img" src="" alt="">
-                                <span class="_card-name">Visa</span>
-                                <span class="_card-code">*******243</span>
-                            </div>
-                            <input type="radio" name="card" value="visa">
-                        </div>
-                        <div class="_card">
-                            <div class="_card-data">
-                                <img class="_card-img" src="" alt="">
-                                <span class="_card-name">MasterCard</span>
-                                <span class="_card-code">*******300</span>
-                            </div>
-                            <input type="radio" name="card" value="mastercard">
-                        </div>
-                    </div>
-                </div>
+      <section class="_section-1">
+        <div class="_additional-functions">
+          <div class="_section-function _section-address">
+            <span><i class="fa-solid fa-location-dot"></i></span>
+            <span>No hay ubicaciones agregadas</span>
+            <button class="_button-address">Agregar ubicación</button>
+          </div>
+          <div class="_section-function _section-pay-method">
+            <div class="_header-pay-method">
+              <h2 class="_title-pay-method">Elige como pagar</h2>
+              <button class="_button-new-pay-method">
+                Añadir nuevo metodo +
+              </button>
             </div>
-            <div class="_cart">
-                <div class="_cart-header">
-                    <div class="_cart-start">
-                        <h2 class="_cart-title">Carrito</h2>
-                        <span class="_cart-amount">3 productos</span>
-                    </div>
-                    <button class="_cart-button-delete-all">Quitar todos</button>
+            <div class="_main-pay-method">
+              
+              <label class="_card" for="visa">
+                <div class="_card-data">
+                  <img class="_card-img" src="/images/logo-visa.png" alt="" />
+                  <span class="_card-name">Visa</span>
+                  <span class="_card-code">*******243</span>
                 </div>
-                <div class="_cart-main">
-                    <div class="_product-card">
-                        <img class="_product-image" src="" alt="">
-                        <div class="_product-data">
-                            <div class="_product-info">
-                                <div class="_product-data-header">
-                                    <h3 class="_product-name">Remera deportiva</h3>
-                                    <button class="_product-delete-button"><i class="fa-solid fa-trash-can"></i></button>
-                                </div>
-                                <span class="_product-price">$300.000</span>
-                            </div>
-                            <div class="_product-counter">
-                                <button class="_button-minus"><i class="fa-solid fa-minus"></i></button>
-                                <span class="_product-amount">1</span>
-                                <button class="_button-plus"><i class="fa-solid fa-plus"></i></button>
-                            </div>
-                        </div>
-                    </div>
+                <input class="_input-radio" id="visa" type="radio" name="card" value="visa" />
+              </label>
+              <label class="_card" for="mastercard">
+                <div class="_card-data">
+                  <img class="_card-img" src="/images/logo-mastercard.png" alt="" />
+                  <span class="_card-name">MasterCard</span>
+                  <span class="_card-code">*******300</span>
                 </div>
-
+                <input class="_input-radio" id="mastercard" type="radio" name="card" value="mastercard" />
+              </label>
             </div>
-        </section>
-        <section class="_section-2">
-            <div class="_payment-section">
-                <h3 class="_payment-title">Recibo</h3>
-                <div class="_discount-section">
-                    <div class="_discount-container">
-                        <i class="fa-solid fa-ticket"></i>
-                        <div class="_discount-input-container">
-                            <input class="_discount-input" type="text" name="" id="">
-                            <i class="fa-solid fa-x"></i>
-                        </div>
-                    </div>
-                    <span class="_cupon-validation">El cupon es valido</span>
-                </div>
-                <div class="_item-list">
-                    <div class="_item-data">
-                        <span class="_item-data-name">Remera deportiva</span>
-                        <span class="_item-data-price">$300.000</span>
-                    </div>
-                    <div class="_item-data">
-                        <span class="_item-data-name">Remera deportiva</span>
-                        <span class="_item-data-price">$500.000</span>
-                    </div>
-                    <div class="_item-data">
-                        <span class="_item-data-name">Remera deportiva</span>
-                        <span class="_item-data-price">$400.000</span>
-                    </div>
-                    <div class="_item-data">
-                        <span class="_item-data-name">Descuento</span>
-                        <span class="_item-data-price">-$300.000</span>
-                    </div>
-                </div>
-                <div class="_total-container">
-                    <span class="_total-title">Total</span>
-                    <span class="_total-price">Total</span>
-                </div>
-                <button class="_pay-button">Pagar</button>
-
+          </div>
+        </div>
+        <div class="_cart">
+          <div class="_cart-header">
+            <div class="_cart-start">
+              <h2 class="_cart-title">Carrito</h2>
+              <span class="_cart-amount">3 productos</span>
             </div>
-        </section>
+            <button class="_cart-button-delete-all">Quitar todos</button>
+          </div>
+          <div class="_cart-main">
+            <div class="_product-card">
+              <img class="_product-image" src="/images/categoria_1.jpg" alt="" />
+              <div class="_product-data">
+                <div class="_product-info">
+                  <div class="_product-data-header">
+                    <h3 class="_product-name">Remera deportiva</h3>
+                      <i class="fa-solid fa-trash-can"></i>
+                  </div>
+                  <span class="_product-price">$300.000</span>
+                </div>
+                <div class="_product-counter">
+                  <button class="_button-counter _button-minus">
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <span class="_product-amount">1</span>
+                  <button class="_button-counter _button-plus">
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="_product-card">
+              <img class="_product-image" src="/images/categoria_3.jpg" alt="" />
+              <div class="_product-data">
+                <div class="_product-info">
+                  <div class="_product-data-header">
+                    <h3 class="_product-name">Remera deportiva</h3>
+                      <i class="fa-solid fa-trash-can"></i>
+                  </div>
+                  <span class="_product-price">$300.000</span>
+                </div>
+                <div class="_product-counter">
+                  <button class="_button-counter _button-minus">
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <span class="_product-amount">1</span>
+                  <button class="_button-counter _button-plus">
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="_section-2">
+        <div class="_payment-section">
+          <h3 class="_payment-title">Recibo</h3>
+          <div class="_discount-section">
+            <div class="_discount-container">
+              <i class="fa-solid fa-ticket"></i>
+              <div class="_discount-input-container">
+                <input class="_discount-input" type="text" name="" id="" placeholder="Ingrese cupon" />
+                <i class="fa-solid fa-x"></i>
+              </div>
+            </div>
+            <span class="_cupon-validation">El cupon es valido</span>
+          </div>
+          <div class="_item-list">
+            <div class="_item-data">
+              <span class="_item-data-name">Remera deportiva</span>
+              <span class="_item-data-price">$300.000</span>
+            </div>
+            <div class="_item-data">
+              <span class="_item-data-name">Remera deportiva</span>
+              <span class="_item-data-price">$500.000</span>
+            </div>
+            <div class="_item-data">
+              <span class="_item-data-name">Remera deportiva</span>
+              <span class="_item-data-price">$400.000</span>
+            </div>
+            <div class="_item-data">
+              <span class="_item-data-name">Descuento</span>
+              <span class="_item-data-price">-$300.000</span>
+            </div>
+          </div>
+          <div class="_total-container">
+            <span class="_total-title">Total</span>
+            <span class="_total-price">$900.000</span>
+          </div>
+          <button class="_pay-button">Pagar</button>
+        </div>
+      </section>
     </main>
     <%- include("./partials/footer.ejs") %>
-
-</body>
+  </body>
 </html>

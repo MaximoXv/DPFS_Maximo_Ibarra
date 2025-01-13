@@ -4,7 +4,10 @@ const productsController = {
     },
     getCartPage: (req,res)=>{
         res.render("cart.ejs")
-    }
+    },
+    getProductAddPage: (req,res)=>{
+        res.render("productAdd.ejs")
+    },
 }
 
 module.exports = productsController;

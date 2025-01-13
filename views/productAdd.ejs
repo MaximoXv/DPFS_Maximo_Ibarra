@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("./partials/head.ejs", {style: "productAdd" , title: "Añadir producto" }) %>
+
+    <body class="_body">
+        <%- include("./partials/header.ejs") %>
+            <main class="_main">
+                <section class="_section-1">
+                    <h1 class="_title">Añadir producto</h1>
+                    <div class="_form-container">
+                        <form action="POST" class="_form">
+                            <div class="_divition-1">
+                                <div class="_form-section">
+                                    <h2 class="_title-section">Información básica</h2>
+                                    <div class="_form-group">
+                                        <label for="name">Nombre</label>
+                                        <input class="_input" type="text" name="name" id="name"
+                                            placeholder="Nombre del producto" />
+                                    </div>
+                                    <div class="_form-double-group">
+                                        <div class="_form-group">
+                                            <label for="brand">Marca</label>
+                                            <input class="_input" type="text" name="brand" id="brand"
+                                                placeholder="Marca del producto" />
+                                        </div>
+                                        <div class="_form-group">
+                                            <label for="model">Modelo</label>
+                                            <input class="_input" type="text" name="model" id="model"
+                                                placeholder="Modelo del producto" />
+                                        </div>
+                                    </div>
+                                    <div class="_form-group">
+                                        <label for="description">Descripción</label>
+                                        <textarea class="_textarea" name="description" id="description"
+                                            placeholder="Descripción" rows="4" cols="50"></textarea>
+                                    </div>
+                                </div>
+                                <div class="_form-section">
+                                    <h2  class="_title-section">Stock y precio</h2>
+                                    <div class="_form-double-group">
+                                        <div class="_form-group">
+                                            <label for="price">Precio</label>
+                                            <input class="_input" type="number" name="price" id="price"
+                                                placeholder="Precio del producto" />
+                                        </div>
+                                        <div class="_form-group">
+                                            <label for="stock">Stock</label>
+                                            <input class="_input" type="number" name="stock" id="stock"
+                                                placeholder="Stock del producto" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="_form-section">
+                                    <h2  class="_title-section">Categorias y detalles</h2>
+                                    <div class="_form-triple-group">
+                                        <div class="_form-group">
+                                            <label for="categorySeason">Estación</label>
+                                            <select class="_select" name="categorySeason" id="categorySeason">
+                                                <option value="1">Invierno</option>
+                                                <option value="2">Verano</option>
+                                                <option value="3">Otoño</option>
+                                                <option value="4">Primavera</option>
+                                            </select>
+                                        </div>
+                                        <div class="_form-group">
+                                            <label for="categoryAge">Rango de edad</label>
+                                            <select class="_select" name="categoryAge" id="categoryAge">
+                                                <option value="1">Bebés</option>
+                                                <option value="2">Niños</option>
+                                                <option value="3">Juveniles</option>
+                                                <option value="4">Adolescentes</option>
+                                                <option value="5">Adultos</option>
+                                            </select>
+                                        </div>
+                                        <div class="_form-group">
+                                            <label for="Genero">Genero</label>
+                                            <select class="_select" name="Genero" id="Genero">
+                                                <option value="1">Masculino</option>
+                                                <option value="2">Femenino</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="_form-group">
+                                        <label for="colors">Colores</label>
+                                        <div class="_checkbox-container">
+                                            <div class="_checkbox-box">
+                                                <input type="checkbox" name="color1" id="color1" value="1" />
+                                                <label class="_checkbox-label _label-color-1" for="color1">
+                                                    
+                                                </label>
+                                            </div>
+                                            <div class="_checkbox-box">
+                                                <input type="checkbox" name="color2" id="color2" value="2" />
+                                                <label class="_checkbox-label _label-color-2" for="color2">
+                                                    
+                                                </label>
+                                            </div>
+                                            <div class="_checkbox-box">
+                                                <input type="checkbox" name="color3" id="color3" value="3" />
+                                                <label class="_checkbox-label _label-color-3" for="color3">
+                                                    
+                                                </label>
+                                            </div>
+                                            <div class="_checkbox-box">
+                                                <input type="checkbox" name="color4" id="color4" value="4" />
+                                                <label class="_checkbox-label _label-color-4" for="color4"></label>
+                                            </div>
+
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="_form-group">
+                                        <label for="sizes">Talles</label>
+                                        <div class="_checkbox-container">
+                                            <div class="_checkbox-box">
+                                                <input type="checkbox" name="size1" id="size1" value="1" />
+                                                <label class="_checkbox-label _label-size-1" for="size1">
+                                                    XS
+                                                </label>
+                                            </div>
+                                            <div class="_checkbox-box">
+                                                <input type="checkbox" name="size2" id="size2" value="2" />
+                                                <label class="_checkbox-label _label-size-2" for="size2">
+                                                    S
+                                                </label>
+                                            </div>
+                                            <div class="_checkbox-box">
+                                                <input type="checkbox" name="size3" id="size3" value="3" />
+                                                <label class="_checkbox-label _label-size-3" for="size3">
+                                                    M
+                                                </label>
+                                            </div>
+                                            <div class="_checkbox-box">
+                                                <input type="checkbox" name="size4" id="size4" value="4" />
+                                                <label class="_checkbox-label _label-size-4" for="size4">
+                                                    L
+                                                </label>
+                                            </div>
+                                            <div class="_checkbox-box">
+                                                <input type="checkbox" name="size5" id="size5" value="5" />
+                                                <label class="_checkbox-label _label-size-5" for="size5">
+                                                    XL
+                                                </label>
+                                            </div>
+                                            <div class="_checkbox-box">
+                                                <input type="checkbox" name="size6" id="size6" value="6" />
+                                                <label class="_checkbox-label _label-size-6" for="size6">
+                                                    XXL
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        
+                                    </div>
+
+
+                                    
+                                </div>
+
+                            </div>
+                            <div class="_divition-2">
+                                <div class="_form-section">
+                                    <h2 class="_title-section">Imagen del producto</h2>
+                                    <div class="_form-group">
+                                        <div class="_input-file-container">
+                                            <i class="fa-solid fa-camera"></i>
+                                            <span>Seleccionar imagen</span>
+                                            <input class="_input-file" type="file" name="image" id="image" accept=".png, .jpg, .jpeg"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="_form-section">
+                                    <h2  class="_title-section">Visibilidad</h2>
+                                    <div class="_form-group">
+                                        <select class="_select" name="visibility" id="visibility">
+                                            <option value="1">Publico</option>
+                                            <option value="2">Oculto</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="_button-submit">Añadir producto</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </section>
+            </main>
+
+            <%- include("./partials/footer.ejs") %>
+    </body>
+
+</html>

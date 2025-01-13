@@ -9,6 +9,7 @@ const productsController = require("../controllers/products.controllers");
 
 router.get("/detail",productsController.getProductPage);
 router.get("/cart",productsController.getCartPage);
+router.get("/add",productsController.getProductAddPage);
 
 
 module.exports = router;

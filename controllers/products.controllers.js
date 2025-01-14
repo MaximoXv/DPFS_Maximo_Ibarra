@@ -8,6 +8,9 @@ const productsController = {
     getProductAddPage: (req,res)=>{
         res.render("productAdd.ejs")
     },
+    getProductEditPage: (req,res)=>{
+        res.render("productEdit.ejs")
+    },
 }
 
 module.exports = productsController;

@@ -10,6 +10,7 @@ const productsController = require("../controllers/products.controllers");
 router.get("/detail",productsController.getProductPage);
 router.get("/cart",productsController.getCartPage);
 router.get("/add",productsController.getProductAddPage);
+router.get("/edit",productsController.getProductEditPage);
 
 
 module.exports = router;

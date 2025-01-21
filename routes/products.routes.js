@@ -11,6 +11,7 @@ router.get("/detail",productsController.getProductPage);
 router.get("/cart",productsController.getCartPage);
 router.get("/add",productsController.getProductAddPage);
 router.get("/edit",productsController.getProductEditPage);
+router.post("/create",productsController.store);
 
 
 module.exports = router;

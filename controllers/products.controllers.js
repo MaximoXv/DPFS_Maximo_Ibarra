@@ -5,19 +5,32 @@ const clothesPath = path.join(__dirname, "..", "data", "ropa.json")
 
 const productsController = {
     getProductPage: (req,res)=>{
-        res.render("productDetail.ejs")
+        res.render("products/detail.ejs")
     },
     getCartPage: (req,res)=>{
-        res.render("cart.ejs")
+        res.render("products/cart.ejs")
     },
     getProductAddPage: (req,res)=>{
-        res.render("productAdd.ejs")
+        res.render("products/add.ejs")
     },
     getProductEditPage: (req,res)=>{
-        res.render("productEdit.ejs")
+        res.render("products/edit.ejs")
     },
     store: (req,res)=>{
-        let clothes = JSON.parse(fs.readFileSync(ropasPath, "utf-8"))
+        let clothes = JSON.parse(fs.readFileSync(clothesPath, "utf-8"))
+        let colors = [];
+        const {name,brand,model, description,price,stock,categorySeason,categoryAge, color} = req.body;
+        let sizes = [];
+        colors.push(req.body.color1)
+        colors.push(req.body.color2)
+        colors.push(req.body.color3)
+        colors.push(req.body.color4)
+        sizes.push(req.body.size1)
+        sizes.push(req.body.size2)
+        sizes.push(req.body.size3)
+        sizes.push(req.body.size4)
+        sizes.push(req.body.size5)
+        sizes.push(req.body.size6)
 
         //checkear que los name de los inputs esten bien puestos
         let newClothe = {
@@ -31,14 +44,16 @@ const productsController = {
       categorias: {
         estacion: req.body.categorySeason,
         edad: req.body.categoryAge,
-        genero: req.body
+        genero: req.body.categoryGenre,
       },
-      colores: ["rojo", "azul", "gris"],
-      tamaños: ["s", "m", "l"],
-      imagen: "https://www.ejemplo.com/imagenes/abrigo_lana_infantil.jpg",
-      visibilidad: "publico"
+      colores: colors,
+      tamaños: sizes,
+      imagen: req.file.filename || "default.png",
+      visibilidad: req.body.visibility
         }
-        console.log(req.body)
+        console.log("aca va el body",req.body)
+        console.log("aca va el file",req.file);
+        
 
         clothes.push(newClothe);
         fs.writeFileSync(clothesPath, JSON.stringify(clothes, null, " "))

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include("./partials/head.ejs", {style: "productAdd" , title: "Añadir producto" }) %>
+<%- include("../partials/head.ejs", {style: "productAdd" , title: "Añadir producto" }) %>
 
     <body class="_body">
-        <%- include("./partials/header.ejs") %>
+        <%- include("../partials/header.ejs") %>
             <main class="_main">
                 <section class="_section-1">
                     <h1 class="_title">Añadir producto</h1>
                     <div class="_form-container">
-                        <form method="post" action="/products/create" class="_form">
+                        <form action="/products/add" method="post" enctype="multipart/form-data" class="_form">
                             <div class="_divition-1">
                                 <div class="_form-section">
                                     <h2 class="_title-section">Información básica</h2>
@@ -75,8 +75,8 @@
                                             </select>
                                         </div>
                                         <div class="_form-group">
-                                            <label for="Genero">Genero</label>
-                                            <select class="_select" name="Genero" id="Genero">
+                                            <label for="cateforyGenre">Genero</label>
+                                            <select class="_select" name="cateforyGenre" id="cateforyGenre">
                                                 <option value="1">Masculino</option>
                                                 <option value="2">Femenino</option>
                                             </select>
@@ -188,7 +188,7 @@
                 </section>
             </main>
 
-            <%- include("./partials/footer.ejs") %>
+            <%- include("../partials/footer.ejs") %>
     </body>
 
 </html>

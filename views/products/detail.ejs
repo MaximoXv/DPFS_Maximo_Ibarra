@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-  <%- include("./partials/head.ejs", {style: "productDetail", title:
+<html lang="es">
+  <%- include("../partials/head.ejs", {style: "productDetail", title:
   "Producto"}) %>
 
   <body class="_body">
-    <%- include("./partials/header.ejs") %>
+    <%- include("../partials/header.ejs") %>
     <main class="_main">
       <section class="_seccion-principal">
         <div class="_producto-imagenes">
           <i class="fa-regular fa-heart"></i>
-          <img class="_imagen-principal" src="/images/categoria_2.jpg" alt="" />
+          <img class="_imagen-principal" src="/images/<%= productFound.imagen %>" alt="" />
           <div class="_imagenes-secundarias">
             <i class="fa-solid fa-circle-chevron-left"></i>
             <i class="fa-solid fa-circle-chevron-right"></i>
@@ -54,8 +54,8 @@
         </div>
         <div class="_producto-datos">
           <div class="_producto-header">
-            <h2 class="_producto-nombre">Remera estampada</h2>
-            <span class="_producto-precio">$60.000</span>
+            <h2 class="_producto-nombre"><%= productFound.nombre %></h2>
+            <span class="_producto-precio">$<%= productFound.precio %></span>
             <div class="_producto-valoracion">
               <div class="_estrellas">
                 <i class="fa-solid fa-star"></i>
@@ -73,10 +73,7 @@
           <div class="_producto-descripcion">
             <span class="_titulo-descripcion">Descripción</span>
             <p class="_producto-info">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-              neque laborum repudiandae, cumque quidem dolore facere debitis
-              harum, veritatis vero assumenda. Totam rem animi voluptatibus
-              quisquam culpa pariatur asperiores recusandae quibusdam hic.
+              <%= productFound.descripcion %>
             </p>
           </div>
           <div class="_producto-colors">
@@ -205,6 +202,6 @@
         </div>
       </section>
     </main>
-    <%- include("./partials/footer.ejs") %>
+    <%- include("../partials/footer.ejs") %>
   </body>
 </html>

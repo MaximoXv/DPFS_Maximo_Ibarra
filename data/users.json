@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Fayina",
+        "lastname": "Aries",
+        "email": "faries0@usgs.gov",
+        "password": "Andalax",
+        "userType": "USER"
+    },
+    {
+        "id": 2,
+        "name": "Monah",
+        "lastname": "Skillitt",
+        "email": "mskillitt1@friendfeed.com",
+        "password": "Zamit",
+        "userType": "USER"
+    },
+    {
+        "id": 3,
+        "name": "Garrott",
+        "lastname": "Veneur",
+        "email": "gveneur2@ed.gov",
+        "password": "Mat Lam Tam",
+        "userType": "USER"
+    },
+    {
+        "id": 4,
+        "name": "Effie",
+        "lastname": "Lasselle",
+        "email": "elasselle3@ibm.com",
+        "password": "admin1234",
+        "userType": "ADMIN"
+    }
+]

@@ -8,11 +8,13 @@ const upload = require("../middleware/multer");
 //.get("/detail", getProductPage)
 //.get("/cart", getCartPage)
 
-router.get("/detail",productsController.getProductPage);
-router.get("/cart",productsController.getCartPage);
-router.get("/add",productsController.getProductAddPage);
-router.get("/edit",productsController.getProductEditPage);
-router.post("/add",upload.single("image"), productsController.store);
+router.get("/detail/:id",productsController.detail);
+router.get("/cart",productsController.cart);
+router.get("/add",productsController.addPage);
+router.post("/add",upload.single("image"), productsController.create);
+router.get("/edit/:id",productsController.editPage);
+router.put("/edit/:id",upload.single("image"), productsController.update);
+router.delete("/delete/:id", productsController.destroy);
 
 
 module.exports = router;

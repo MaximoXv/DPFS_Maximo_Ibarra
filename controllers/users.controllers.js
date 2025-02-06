@@ -1,9 +1,9 @@
 const usersControllers = {
     getLogin: (req,res)=>{
-        res.render("login.ejs");
+        res.render("users/login.ejs");
     },
     getRegister: (req,res)=>{
-        res.render("register.ejs");
+        res.render("users/register.ejs");
     }
 };
 

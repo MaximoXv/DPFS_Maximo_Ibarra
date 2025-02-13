@@ -1,494 +1,567 @@
 [
-    {
-        "id": 1,
-        "nombre": "Abrigo de Lana Infantil",
-        "marca": "PequeStyle",
-        "modelo": "LANA2025",
-        "descripcion": "Abrigo de lana suave y cálido ideal para niños en invierno.",
-        "precio": 45.99,
-        "stock": 25,
-        "categorias": {
-            "estacion": "invierno",
-            "edad": "niño",
-            "genero": "masculino"
-        },
-        "colores": [
-            "#4177eb",
-            "#b8b8b8"
-        ],
-        "tamaños": [
-            "s",
-            "m",
-            "l"
-        ],
-        "imagen": "imagen1.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 2,
-        "nombre": "Chaqueta Casual Adolescente",
-        "marca": "UrbanVibes",
-        "modelo": "CA2025",
-        "descripcion": "Chaqueta casual y moderna para adolescentes, perfecta para el otoño y la primavera.",
-        "precio": 59.99,
-        "stock": 15,
-        "categorias": {
-            "estacion": "primavera",
-            "edad": "adolescente",
-            "genero": "masculino"
-        },
-        "colores": [
-            "#181818",
-            "#4177eb"
-        ],
-        "tamaños": [
-            "xs",
-            "s",
-            "m",
-            "l"
-        ],
-        "imagen": "imagen2.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 3,
-        "nombre": "Pantalón Deportivo Adulto",
-        "marca": "FitWear",
-        "modelo": "DEPORTIVO2025",
-        "descripcion": "Pantalón cómodo para ejercicio o descanso, ideal para adultos.",
-        "precio": 35.5,
-        "stock": 40,
-        "categorias": {
-            "estacion": "invierno",
-            "edad": "adulto",
-            "genero": "masculino"
-        },
-        "colores": [
-            "#b8b8b8",
-            "#181818"
-        ],
-        "tamaños": [
-            "m",
-            "l",
-            "xl"
-        ],
-        "imagen": "imagen3.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 4,
-        "nombre": "Vestido Elegante Infantil",
-        "marca": "CuteWear",
-        "modelo": "VESTIDO2025",
-        "descripcion": "Vestido elegante para niñas, ideal para eventos especiales.",
-        "precio": 70,
-        "stock": 30,
-        "categorias": {
-            "estacion": "invierno",
-            "edad": "niña",
-            "genero": "femenino"
-        },
-        "colores": [
-            "#f3f3f3"
-        ],
-        "tamaños": [
-            "xs",
-            "s",
-            "m"
-        ],
-        "imagen": "imagen4.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 5,
-        "nombre": "Sudadera con Capucha Juvenil",
-        "marca": "StreetWear",
-        "modelo": "SUDADERA2025",
-        "descripcion": "Sudadera con capucha, cómoda y versátil para adolescentes, perfecta para días fríos.",
-        "precio": 40,
-        "stock": 50,
-        "categorias": {
-            "estacion": "invierno",
-            "edad": "adolescente",
-            "genero": "femenino"
-        },
-        "colores": [
-            "#181818",
-            "#4177eb"
-        ],
-        "tamaños": [
-            "xs",
-            "s",
-            "m",
-            "l"
-        ],
-        "imagen": "imagen5.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 6,
-        "nombre": "Bermuda Casual Hombre",
-        "marca": "SummerLife",
-        "modelo": "BERMUDA2025",
-        "descripcion": "Bermuda ligera y cómoda para hombres, ideal para verano.",
-        "precio": 29.99,
-        "stock": 60,
-        "categorias": {
-            "estacion": "verano",
-            "edad": "adulto",
-            "genero": "masculino"
-        },
-        "colores": [
-            "#b8b8b8"
-        ],
-        "tamaños": [
-            "m",
-            "l",
-            "xl"
-        ],
-        "imagen": "imagen6.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 7,
-        "nombre": "Chaqueta de Cuero Mujer",
-        "marca": "LeatherStyle",
-        "modelo": "CUERO2025",
-        "descripcion": "Chaqueta de cuero elegante y moderna, ideal para mujeres.",
-        "precio": 120,
-        "stock": 10,
-        "categorias": {
-            "estacion": "invierno",
-            "edad": "adulto",
-            "genero": "femenino"
-        },
-        "colores": [
-            "#181818"
-        ],
-        "tamaños": [
-            "s",
-            "m",
-            "l"
-        ],
-        "imagen": "imagen7.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 8,
-        "nombre": "Botines de Invierno Hombre",
-        "marca": "StepOut",
-        "modelo": "BOTINES2025",
-        "descripcion": "Botines de invierno resistentes y cómodos, ideales para hombres.",
-        "precio": 75,
-        "stock": 20,
-        "categorias": {
-            "estacion": "invierno",
-            "edad": "adulto",
-            "genero": "masculino"
-        },
-        "colores": [
-            "#181818"
-        ],
-        "tamaños": [
-            "m",
-            "l"
-        ],
-        "imagen": "imagendefault.jpg",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 9,
-        "nombre": "Camiseta Estampada Adolescente",
-        "marca": "VibeTees",
-        "modelo": "CAMISETA2025",
-        "descripcion": "Camiseta juvenil con diseño moderno y cómodo, ideal para adolescentes.",
-        "precio": 19.99,
-        "stock": 35,
-        "categorias": {
-            "estacion": "primavera",
-            "edad": "adolescente",
-            "genero": "masculino"
-        },
-        "colores": [
-            "#f3f3f3",
-            "#b8b8b8",
-            "#4177eb"
-        ],
-        "tamaños": [
-            "xs",
-            "s",
-            "m",
-            "l"
-        ],
-        "imagen": "imagen9.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 10,
-        "nombre": "Pantalón Slim Fit Mujer",
-        "marca": "UrbanFit",
-        "modelo": "SLIMFIT2025",
-        "descripcion": "Pantalón de corte slim fit, perfecto para un look casual y elegante.",
-        "precio": 49.99,
-        "stock": 40,
-        "categorias": {
-            "estacion": "invierno",
-            "edad": "adulto",
-            "genero": "femenino"
-        },
-        "colores": [
-            "#181818",
-            "#4177eb"
-        ],
-        "tamaños": [
-            "xs",
-            "s",
-            "m",
-            "l"
-        ],
-        "imagen": "imagen10.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 11,
-        "nombre": "Camisa de Algodón Niño",
-        "marca": "TinyCotton",
-        "modelo": "CAMISA2025",
-        "descripcion": "Camisa de algodón fresca y cómoda, perfecta para niños.",
-        "precio": 24.99,
-        "stock": 50,
-        "categorias": {
-            "estacion": "primavera",
-            "edad": "niño",
-            "genero": "masculino"
-        },
-        "colores": [
-            "#4177eb"
-        ],
-        "tamaños": [
-            "s",
-            "m",
-            "l"
-        ],
-        "imagen": "imagen11.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 12,
-        "nombre": "Short Deportivo Mujer",
-        "marca": "ActiveWear",
-        "modelo": "SHORTDEPORTIVO2025",
-        "descripcion": "Short cómodo y flexible, ideal para hacer deporte o descansar.",
-        "precio": 28,
-        "stock": 60,
-        "categorias": {
-            "estacion": "verano",
-            "edad": "adulto",
-            "genero": "femenino"
-        },
-        "colores": [
-            "#181818"
-        ],
-        "tamaños": [
-            "s",
-            "m",
-            "l"
-        ],
-        "imagen": "imagen12.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 13,
-        "nombre": "Campera de Plumas Niño",
-        "marca": "WarmKids",
-        "modelo": "PLUMAS2025",
-        "descripcion": "Campera de plumas cálida y ligera, perfecta para el invierno de los más pequeños.",
-        "precio": 55,
-        "stock": 18,
-        "categorias": {
-            "estacion": "invierno",
-            "edad": "niño",
-            "genero": "masculino"
-        },
-        "colores": [
-            "#4177eb",
-            "#181818"
-        ],
-        "tamaños": [
-            "s",
-            "m"
-        ],
-        "imagen": "https://www.ejemplo.com/imagenes/chaqueta_plumas_nino.jpg",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 14,
-        "nombre": "Suéter de Lana Mujer",
-        "marca": "KnitwearCo",
-        "modelo": "SUETER2025",
-        "descripcion": "Suéter de lana suave y cálido, ideal para mujeres durante el invierno.",
-        "precio": 50,
-        "stock": 30,
-        "categorias": {
-            "estacion": "invierno",
-            "edad": "adulto",
-            "genero": "femenino"
-        },
-        "colores": [
-            "#b8b8b8"
-        ],
-        "tamaños": [
-            "s",
-            "m",
-            "l"
-        ],
-        "imagen": "imagen14.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 15,
-        "nombre": "Pantalón Cargo Hombre",
-        "marca": "UrbanOutfit",
-        "modelo": "CARGO2025",
-        "descripcion": "Pantalón cargo cómodo y práctico para hombres, ideal para cualquier ocasión.",
-        "precio": 49,
-        "stock": 40,
-        "categorias": {
-            "estacion": "primavera",
-            "edad": "adulto",
-            "genero": "masculino"
-        },
-        "colores": [
-            "#181818"
-        ],
-        "tamaños": [
-            "m",
-            "l",
-            "xl"
-        ],
-        "imagen": "imagen15.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 16,
-        "nombre": "Falda Larga Mujer",
-        "marca": "Fashionista",
-        "modelo": "FALDA2025",
-        "descripcion": "Falda larga y fluida, perfecta para el verano.",
-        "precio": 39.99,
-        "stock": 55,
-        "categorias": {
-            "estacion": "verano",
-            "edad": "adulto",
-            "genero": "femenino"
-        },
-        "colores": [
-            "#f3f3f3",
-            "#181818"
-        ],
-        "tamaños": [
-            "s",
-            "m",
-            "l"
-        ],
-        "imagen": "imagen16.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 17,
-        "nombre": "Pantalón Corto Niño",
-        "marca": "MiniTrends",
-        "modelo": "CORTO2025",
-        "descripcion": "Pantalón corto cómodo y fresco para niños en verano.",
-        "precio": 18,
-        "stock": 70,
-        "categorias": {
-            "estacion": "verano",
-            "edad": "niño",
-            "genero": "masculino"
-        },
-        "colores": [
-            "#f3f3f3"
-        ],
-        "tamaños": [
-            "s",
-            "m",
-            "l"
-        ],
-        "imagen": "imagen17.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 18,
-        "nombre": "Chaqueta de Invierno Mujer",
-        "marca": "SnowGear",
-        "modelo": "CHAQUETA2025",
-        "descripcion": "Chaqueta de invierno resistente al frío, ideal para mujeres que aman el frío.",
-        "precio": 99,
-        "stock": 12,
-        "categorias": {
-            "estacion": "invierno",
-            "edad": "adulto",
-            "genero": "femenino"
-        },
-        "colores": [
-            "#f3f3f3",
-            "#4177eb"
-        ],
-        "tamaños": [
-            "s",
-            "m",
-            "l"
-        ],
-        "imagen": "imagen18.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 19,
-        "nombre": "Sudadera con Estampado Niña",
-        "marca": "FunWear",
-        "modelo": "SUDADERA2025",
-        "descripcion": "Sudadera con divertido estampado para niñas, perfecta para invierno.",
-        "precio": 38,
-        "stock": 30,
-        "categorias": {
-            "estacion": "invierno",
-            "edad": "niña",
-            "genero": "femenino"
-        },
-        "colores": [
-            "#f3f3f3"
-        ],
-        "tamaños": [
-            "xs",
-            "s",
-            "m"
-        ],
-        "imagen": "imagen19.webp",
-        "visibilidad": "publico"
-    },
-    {
-        "id": 20,
-        "nombre": "Tennis Deportivo Hombre",
-        "marca": "SportMaster",
-        "modelo": "TENNIS2025",
-        "descripcion": "Tennis deportivos cómodos y resistentes para hombres.",
-        "precio": 65,
-        "stock": 25,
-        "categorias": {
-            "estacion": "primavera",
-            "edad": "adulto",
-            "genero": "masculino"
-        },
-        "colores": [
-            "#f3f3f3",
-            "#181818"
-        ],
-        "tamaños": [
-            "xs",
-            "s"
-        ],
-        "imagen": "imagen20.webp",
-        "visibilidad": "publico"
-    }
+ {
+  "id": 1,
+  "nombre": "Abrigo de Lana Infantil",
+  "marca": "PequeStyle",
+  "modelo": "LANA2025",
+  "descripcion": "Abrigo de lana suave y cálido ideal para niños en invierno.",
+  "precio": 45.99,
+  "stock": 25,
+  "categorias": {
+   "estacion": "invierno",
+   "edad": "niño",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#4177eb",
+   "#b8b8b8"
+  ],
+  "tamaños": [
+   "s",
+   "m",
+   "l"
+  ],
+  "imagen": "imagen1.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 2,
+  "nombre": "Chaqueta Casual Adolescente",
+  "marca": "UrbanVibes",
+  "modelo": "CA2025",
+  "descripcion": "Chaqueta casual y moderna para adolescentes, perfecta para el otoño y la primavera.",
+  "precio": 59.99,
+  "stock": 15,
+  "categorias": {
+   "estacion": "primavera",
+   "edad": "adolescente",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#181818",
+   "#4177eb"
+  ],
+  "tamaños": [
+   "xs",
+   "s",
+   "m",
+   "l"
+  ],
+  "imagen": "imagen2.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 3,
+  "nombre": "Pantalón Deportivo Adulto",
+  "marca": "FitWear",
+  "modelo": "DEPORTIVO2025",
+  "descripcion": "Pantalón cómodo para ejercicio o descanso, ideal para adultos.",
+  "precio": 35.5,
+  "stock": 40,
+  "categorias": {
+   "estacion": "invierno",
+   "edad": "adulto",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#b8b8b8",
+   "#181818"
+  ],
+  "tamaños": [
+   "m",
+   "l",
+   "xl"
+  ],
+  "imagen": "imagen3.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 4,
+  "nombre": "Vestido Elegante Infantil",
+  "marca": "CuteWear",
+  "modelo": "VESTIDO2025",
+  "descripcion": "Vestido elegante para niñas, ideal para eventos especiales.",
+  "precio": 70,
+  "stock": 30,
+  "categorias": {
+   "estacion": "invierno",
+   "edad": "niña",
+   "genero": "femenino"
+  },
+  "colores": [
+   "#f3f3f3"
+  ],
+  "tamaños": [
+   "xs",
+   "s",
+   "m"
+  ],
+  "imagen": "imagen4.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 5,
+  "nombre": "Sudadera con Capucha Juvenil",
+  "marca": "StreetWear",
+  "modelo": "SUDADERA2025",
+  "descripcion": "Sudadera con capucha, cómoda y versátil para adolescentes, perfecta para días fríos.",
+  "precio": 40,
+  "stock": 50,
+  "categorias": {
+   "estacion": "invierno",
+   "edad": "adolescente",
+   "genero": "femenino"
+  },
+  "colores": [
+   "#181818",
+   "#4177eb"
+  ],
+  "tamaños": [
+   "xs",
+   "s",
+   "m",
+   "l"
+  ],
+  "imagen": "imagen5.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 6,
+  "nombre": "Bermuda Casual Hombre",
+  "marca": "SummerLife",
+  "modelo": "BERMUDA2025",
+  "descripcion": "Bermuda ligera y cómoda para hombres, ideal para verano.",
+  "precio": 29.99,
+  "stock": 60,
+  "categorias": {
+   "estacion": "verano",
+   "edad": "adulto",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#b8b8b8"
+  ],
+  "tamaños": [
+   "m",
+   "l",
+   "xl"
+  ],
+  "imagen": "imagen6.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 7,
+  "nombre": "Chaqueta de Cuero Mujer",
+  "marca": "LeatherStyle",
+  "modelo": "CUERO2025",
+  "descripcion": "Chaqueta de cuero elegante y moderna, ideal para mujeres.",
+  "precio": 120,
+  "stock": 10,
+  "categorias": {
+   "estacion": "invierno",
+   "edad": "adulto",
+   "genero": "femenino"
+  },
+  "colores": [
+   "#181818"
+  ],
+  "tamaños": [
+   "s",
+   "m",
+   "l"
+  ],
+  "imagen": "imagen7.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 8,
+  "nombre": "Botines de Invierno Hombre",
+  "marca": "StepOut",
+  "modelo": "BOTINES2025",
+  "descripcion": "Botines de invierno resistentes y cómodos, ideales para hombres.",
+  "precio": 75,
+  "stock": 20,
+  "categorias": {
+   "estacion": "invierno",
+   "edad": "adulto",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#181818"
+  ],
+  "tamaños": [
+   "m",
+   "l"
+  ],
+  "imagen": "imagen8.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 9,
+  "nombre": "Camiseta Estampada Adolescente",
+  "marca": "VibeTees",
+  "modelo": "CAMISETA2025",
+  "descripcion": "Camiseta juvenil con diseño moderno y cómodo, ideal para adolescentes.",
+  "precio": 19.99,
+  "stock": 35,
+  "categorias": {
+   "estacion": "primavera",
+   "edad": "adolescente",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#f3f3f3",
+   "#b8b8b8",
+   "#4177eb"
+  ],
+  "tamaños": [
+   "xs",
+   "s",
+   "m",
+   "l"
+  ],
+  "imagen": "imagen9.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 10,
+  "nombre": "Pantalón Slim Fit Mujer",
+  "marca": "UrbanFit",
+  "modelo": "SLIMFIT2025",
+  "descripcion": "Pantalón de corte slim fit, perfecto para un look casual y elegante.",
+  "precio": 49.99,
+  "stock": 40,
+  "categorias": {
+   "estacion": "invierno",
+   "edad": "adulto",
+   "genero": "femenino"
+  },
+  "colores": [
+   "#181818",
+   "#4177eb"
+  ],
+  "tamaños": [
+   "xs",
+   "s",
+   "m",
+   "l"
+  ],
+  "imagen": "imagen10.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 11,
+  "nombre": "Camisa de Algodón Niño",
+  "marca": "TinyCotton",
+  "modelo": "CAMISA2025",
+  "descripcion": "Camisa de algodón fresca y cómoda, perfecta para niños.",
+  "precio": 24.99,
+  "stock": 50,
+  "categorias": {
+   "estacion": "primavera",
+   "edad": "niño",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#4177eb"
+  ],
+  "tamaños": [
+   "s",
+   "m",
+   "l"
+  ],
+  "imagen": "imagen11.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 12,
+  "nombre": "Short Deportivo Mujer",
+  "marca": "ActiveWear",
+  "modelo": "SHORTDEPORTIVO2025",
+  "descripcion": "Short cómodo y flexible, ideal para hacer deporte o descansar.",
+  "precio": 28,
+  "stock": 60,
+  "categorias": {
+   "estacion": "verano",
+   "edad": "adulto",
+   "genero": "femenino"
+  },
+  "colores": [
+   "#181818"
+  ],
+  "tamaños": [
+   "s",
+   "m",
+   "l"
+  ],
+  "imagen": "imagen12.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 13,
+  "nombre": "Campera de Plumas Niño",
+  "marca": "WarmKids",
+  "modelo": "PLUMAS2025",
+  "descripcion": "Campera de plumas cálida y ligera, perfecta para el invierno de los más pequeños.",
+  "precio": 55,
+  "stock": 18,
+  "categorias": {
+   "estacion": "invierno",
+   "edad": "niño",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#4177eb",
+   "#181818"
+  ],
+  "tamaños": [
+   "s",
+   "m"
+  ],
+  "imagen": "imagen13.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 14,
+  "nombre": "Suéter de Lana Mujer",
+  "marca": "KnitwearCo",
+  "modelo": "SUETER2025",
+  "descripcion": "Suéter de lana suave y cálido, ideal para mujeres durante el invierno.",
+  "precio": 50,
+  "stock": 30,
+  "categorias": {
+   "estacion": "invierno",
+   "edad": "adulto",
+   "genero": "femenino"
+  },
+  "colores": [
+   "#b8b8b8"
+  ],
+  "tamaños": [
+   "s",
+   "m",
+   "l"
+  ],
+  "imagen": "imagen14.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 15,
+  "nombre": "Pantalón Cargo Hombre",
+  "marca": "UrbanOutfit",
+  "modelo": "CARGO2025",
+  "descripcion": "Pantalón cargo cómodo y práctico para hombres, ideal para cualquier ocasión.",
+  "precio": 49,
+  "stock": 40,
+  "categorias": {
+   "estacion": "primavera",
+   "edad": "adulto",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#181818"
+  ],
+  "tamaños": [
+   "m",
+   "l",
+   "xl"
+  ],
+  "imagen": "imagen15.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 16,
+  "nombre": "Falda Larga Mujer",
+  "marca": "Fashionista",
+  "modelo": "FALDA2025",
+  "descripcion": "Falda larga y fluida, perfecta para el verano.",
+  "precio": 39.99,
+  "stock": 55,
+  "categorias": {
+   "estacion": "verano",
+   "edad": "adulto",
+   "genero": "femenino"
+  },
+  "colores": [
+   "#f3f3f3",
+   "#181818"
+  ],
+  "tamaños": [
+   "s",
+   "m",
+   "l"
+  ],
+  "imagen": "imagen16.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 17,
+  "nombre": "Pantalón Corto Niño",
+  "marca": "MiniTrends",
+  "modelo": "CORTO2025",
+  "descripcion": "Pantalón corto cómodo y fresco para niños en verano.",
+  "precio": 18,
+  "stock": 70,
+  "categorias": {
+   "estacion": "verano",
+   "edad": "niño",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#f3f3f3"
+  ],
+  "tamaños": [
+   "s",
+   "m",
+   "l"
+  ],
+  "imagen": "imagen17.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 18,
+  "nombre": "Chaqueta de Invierno Mujer",
+  "marca": "SnowGear",
+  "modelo": "CHAQUETA2025",
+  "descripcion": "Chaqueta de invierno resistente al frío, ideal para mujeres que aman el frío.",
+  "precio": 99,
+  "stock": 12,
+  "categorias": {
+   "estacion": "invierno",
+   "edad": "adulto",
+   "genero": "femenino"
+  },
+  "colores": [
+   "#f3f3f3",
+   "#4177eb"
+  ],
+  "tamaños": [
+   "s",
+   "m",
+   "l"
+  ],
+  "imagen": "imagen18.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 19,
+  "nombre": "Sudadera con Estampado Niña",
+  "marca": "FunWear",
+  "modelo": "SUDADERA2025",
+  "descripcion": "Sudadera con divertido estampado para niñas, perfecta para invierno.",
+  "precio": 38,
+  "stock": 30,
+  "categorias": {
+   "estacion": "invierno",
+   "edad": "niña",
+   "genero": "femenino"
+  },
+  "colores": [
+   "#f3f3f3"
+  ],
+  "tamaños": [
+   "xs",
+   "s",
+   "m"
+  ],
+  "imagen": "imagen19.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 20,
+  "nombre": "Tennis Deportivo Hombre",
+  "marca": "SportMaster",
+  "modelo": "TENNIS2025",
+  "descripcion": "Tennis deportivos cómodos y resistentes para hombres.",
+  "precio": 65,
+  "stock": 25,
+  "categorias": {
+   "estacion": "primavera",
+   "edad": "adulto",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#f3f3f3",
+   "#181818"
+  ],
+  "tamaños": [
+   "xs",
+   "s"
+  ],
+  "imagen": "imagen20.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 21,
+  "nombre": "Pijama de cuadros",
+  "marca": "LOOK",
+  "modelo": "LOOK123",
+  "descripcion": "Pijama de cuadros de mujer para verano",
+  "precio": "3000",
+  "stock": "200",
+  "categorias": {
+   "estacion": "verano",
+   "edad": "adulto",
+   "genero": "femenino"
+  },
+  "colores": [
+   "#b8b8b8"
+  ],
+  "tamaños": [
+   "l",
+   "xl"
+  ],
+  "imagen": "prod-1739478817036.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 22,
+  "nombre": "Camiseta estampada - tnf negra tnf blanca",
+  "marca": "THENORTHFACE",
+  "modelo": "TNF123",
+  "descripcion": "Material exterior: 100% algodón\r\nMaterial/composición: Jersey\r\n\r\nCuello/escote: Cuello redondo\r\nEstampado: Estampado\r\nNúmero de artículo: TH322O0B2-Q11",
+  "precio": "2000",
+  "stock": "100",
+  "categorias": {
+   "estacion": "verano",
+   "edad": "adolescente",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#f3f3f3",
+   "#181818"
+  ],
+  "tamaños": [
+   "m",
+   "l",
+   "xl"
+  ],
+  "imagen": "prod-1739479242988.webp",
+  "visibilidad": "publico"
+ },
+ {
+  "id": 23,
+  "nombre": " Camiseta estampada SOLO TEE",
+  "marca": "Nike Sportswear",
+  "modelo": "NikeSportswear123",
+  "descripcion": "Material exterior: 100% algodón\r\nMaterial/composición: Jersey\r\n\r\nCuello/escote: Cuello redondo\r\nTransparencia: Poco transparente\r\nEstampado: Estampado",
+  "precio": "1200",
+  "stock": "50",
+  "categorias": {
+   "estacion": "verano",
+   "edad": "adulto",
+   "genero": "masculino"
+  },
+  "colores": [
+   "#f3f3f3",
+   "#181818"
+  ],
+  "tamaños": [
+   "l",
+   "xl",
+   "xxl"
+  ],
+  "imagen": "prod-1739479423428.webp",
+  "visibilidad": "publico"
+ }
 ]

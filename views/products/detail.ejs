@@ -97,6 +97,9 @@
               <i class="fa-solid fa-bag-shopping"></i> Añadir a carrito
             </button>
             <button class="_boton _boton-comprar">Comprar ahora</button>
+            <form action="/products/delete/<%= productFound.id %>?__method=DELETE" method="post">
+              <button class="_boton _boton-comprar">Borrar producto</button>
+            </form>
           </div>
         </div>
       </section>

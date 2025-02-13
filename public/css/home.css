@@ -11,6 +11,10 @@
     box-sizing: border-box;
     font-family: "Fredoka", sans-serif;
     font-weight: 600;
+    text-decoration: none;
+}
+*:any-link{
+    color: var(--black-color);
 }
 
 ._body{
@@ -298,6 +302,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 20px;
+    max-width: 10rem;
     padding: 5px;
     transition: all 0.3s;
     box-shadow: 0px 0px 2px 0px black;
@@ -342,6 +347,9 @@
 
 ._body ._main ._seccion ._seccion-contenido ._tarjeta ._tarjeta-textos ._tarjeta-nombre{
     font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 ._body ._main ._seccion ._seccion-contenido ._tarjeta ._tarjeta-textos ._tarjeta-marca{

@@ -47,7 +47,7 @@ const productsController = {
       },
       colores: colors,
       tamaños: sizes,
-      imagen: req.file.filename || "default.png",
+      imagen: req.file.filename || "imagendefault.jpg",
       visibilidad: req.body.visibility
         }
         console.log("aca va el body",req.body)
@@ -109,11 +109,12 @@ const productsController = {
     destroy:(req,res)=>{
         let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
         const productFound = products.find(product=>product.id == req.params.id);
-        fs.unlinkSync(path.join(__dirname, "..", "public", "images",productFound.imagen));
+        if(productFound.imagen != "imagendefault.jpg"){
+            fs.unlinkSync(path.join(__dirname, "..", "public", "images",productFound.imagen));
+        }
         products = products.filter(product=>product.id != req.params.id);
         fs.writeFileSync(productsPath, JSON.stringify(products, null, " "));
         res.redirect("/")
-
     }
 }
 

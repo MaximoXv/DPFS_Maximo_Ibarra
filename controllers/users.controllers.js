@@ -4,10 +4,10 @@ let path = require("path");
 
 const usersPath = path.join(__dirname, "..", "data", "users.json");
 const usersControllers = {
-  getLogin: (req, res) => {
+  login: (req, res) => {
     res.render("users/login.ejs");
   },
-  getRegister: (req, res) => {
+  register: (req, res) => {
     res.render("users/register.ejs");
   },
   processRegister: (req, res) => {
@@ -15,11 +15,13 @@ const usersControllers = {
 
     passwordHash = bcyrpt.hashSync(req.body.password, 8);
     let newUser = {
-      id: users.length + 1,
-      name: req.body.name,
-      lastName: req.body.lastName,
+      id: users[users.length -1].id + 1,
+      name_surname: req.body.name_surname,
+      direction: req.body.direction,
+      phone_number: req.body.phone_number,
       email: req.body.email,
       password: passwordHash,
+      profile_picture: req.file? req.file.filename : "userDefault.jpg",
       userType: "USER",
     };
 

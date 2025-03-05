@@ -4,30 +4,61 @@
 
   <body class="_body">
     <main class="_main">
-      <form action="/users/register" method="post" class="_register">
+      <form action="/users/register" method="post" enctype="multipart/form-data" class="_register">
         <h1 class="_titulo-register">Crea una cuenta</h1>
         <span class="_texto-nuevo"
           >Ya tienes una cuenta?
           <a class="_link-nuevo" href="/users/login">Logueate</a></span
         >
-        <label class="_label-email" for="email">Usuario o email</label>
-        <input class="_input-email" type="email" name="email" id="email" />
-        <label class="_label-password" for="password">Contraseña</label>
-        <input
-          class="_input-password"
-          type="password"
-          name="password"
-          id="password"
-        />
-        <label class="_label-password" for="confirmPassword"
-          >Confirmar contraseña</label
-        >
-        <input
-          class="_input-password"
-          type="password"
-          name="confirmPassword"
-          id="confirmPassword"
-        />
+        <label class="_label" for="name_surname">Nombre y apellido</label>
+        <input class="_input" type="text" name="name_surname" id="name_surname" />
+        <div class="_double-input">
+          <div class="_one-input">
+            <label class="_label" for="direction">Dirección</label>
+            <input class="_input" type="text" name="direction" id="direction" />
+          </div>
+          <div class="_one-input">
+            <label class="_label" for="phone_number">Télefono</label>
+            <input class="_input" type="tel" name="phone_number" id="phone_number" />
+          </div>
+        </div>
+        <label class="_label" for="email">Email</label>
+        <input class="_input" type="email" name="email" id="email" />
+        <div class="_double-input">
+          <div class="_one-input">
+
+            <label class="_label" for="password">Contraseña</label>
+            <input
+              class="_input"
+              type="password"
+              name="password"
+              id="password"
+            />
+          </div>
+          <div class="_one-input">
+
+            <label class="_label" for="confirmPassword"
+              >Confirmar contraseña</label
+            >
+            <input
+              class="_input"
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+            />
+          </div>
+
+        </div>
+        <label class="_label" for="profile_picture"
+              >Foto de perfil</label
+            >
+            <input
+              class="_input"
+              type="file"
+              name="profile_picture"
+              id="profile_picture"
+              accept=".png, .jpg, .jpeg, .webp"
+            />
         <div class="_terminos-y-condiciones">
           <input
             type="checkbox"

@@ -47,7 +47,7 @@ const productsController = {
       },
       colores: colors,
       tamaños: sizes,
-      imagen: req.file.filename || "imagendefault.jpg",
+      imagen: req.file? req.file.filename : "imagendefault.jpg",
       visibilidad: req.body.visibility
         }
         console.log("aca va el body",req.body)

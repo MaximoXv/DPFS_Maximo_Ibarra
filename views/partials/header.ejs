@@ -14,11 +14,29 @@
       <i class="fa-solid fa-magnifying-glass _icon"></i>
     </div>
     <div class="_nav-bar-buttons">
-      <div class="_nav-bar-login">
-        <i class="fa-solid fa-user ._icon"></i>
-        <span class="_ingresar">Ingresar</span>
+      <% if (locals.isLogged) { %>
+        <div class="_nav-bar-login">
+        
+        <img class="_imagen-perfil" src="/images/users/<%= locals.userLogged.profile_picture %>" alt="" />
+        <span class="_ingresar"><%= locals.userLogged.name_surname %></span>
       </div>
-      <i class="fa-solid fa-cart-shopping ._icon"></i>
+          <% } else { %>
+            <a class="_link" href="/users/login">
+              <div class="_nav-bar-login">
+                <i class="fa-solid fa-user ._icon"></i>
+                <span class="_ingresar">Ingresar</span>
+              </div>
+            </a>
+            <% } %>
+         
+      <% if (locals.isLogged) { %>
+        <a class="_link" href="/products/cart">
+          <i class="fa-solid fa-cart-shopping ._icon"></i>
+        </a>
+        <a class="_link" href="/users/logout">
+          <i class="fa-solid fa-right-from-bracket ._icon"></i>
+        </a>
+      <% } %>
     </div>
   </nav>
 </header>

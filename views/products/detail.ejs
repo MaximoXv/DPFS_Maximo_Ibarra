@@ -7,101 +7,113 @@
     <%- include("../partials/header.ejs") %>
     <main class="_main">
       <section class="_seccion-principal">
-        <div class="_producto-imagenes">
-          <i class="fa-regular fa-heart"></i>
-          <img class="_imagen-principal" src="/images/<%= productFound.imagen %>" alt="" />
-          <div class="_imagenes-secundarias">
-            <i class="fa-solid fa-circle-chevron-left"></i>
-            <i class="fa-solid fa-circle-chevron-right"></i>
-            <div class="_carrousel">
-              <img
-                class="_imagen-secundaria"
-                src="/images/categoria_2.jpg"
-                alt=""
-              />
-              <img
-                class="_imagen-secundaria"
-                src="/images/categoria_2.jpg"
-                alt=""
-              />
-              <img
-                class="_imagen-secundaria"
-                src="/images/categoria_2.jpg"
-                alt=""
-              />
-              <img
-                class="_imagen-secundaria"
-                src="/images/categoria_2.jpg"
-                alt=""
-              />
-              <img
-                class="_imagen-secundaria"
-                src="/images/categoria_2.jpg"
-                alt=""
-              />
-              <img
-                class="_imagen-secundaria"
-                src="/images/categoria_2.jpg"
-                alt=""
-              />
-              <img
-                class="_imagen-secundaria"
-                src="/images/categoria_2.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-        <div class="_producto-datos">
-          <div class="_producto-header">
-            <h2 class="_producto-nombre"><%= productFound.nombre %></h2>
-            <span class="_producto-precio">$<%= productFound.precio %></span>
-            <div class="_producto-valoracion">
-              <div class="_estrellas">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-              </div>
-              <div class="_cant-valoracion">
-                <span class="_abreviacion">(4.8)</span>
-                <span class="_cantidad">1.2k valoraciones</span>
+        <% if (productFound) { %>
+          <div class="_producto-imagenes">
+            <i class="fa-regular fa-heart"></i>
+            <img class="_imagen-principal" src="/images/<%= productFound.imagen %>" alt="" />
+            <div class="_imagenes-secundarias">
+              <i class="fa-solid fa-circle-chevron-left"></i>
+              <i class="fa-solid fa-circle-chevron-right"></i>
+              <div class="_carrousel">
+                <img
+                  class="_imagen-secundaria"
+                  src="/images/categoria_2.jpg"
+                  alt=""
+                />
+                <img
+                  class="_imagen-secundaria"
+                  src="/images/categoria_2.jpg"
+                  alt=""
+                />
+                <img
+                  class="_imagen-secundaria"
+                  src="/images/categoria_2.jpg"
+                  alt=""
+                />
+                <img
+                  class="_imagen-secundaria"
+                  src="/images/categoria_2.jpg"
+                  alt=""
+                />
+                <img
+                  class="_imagen-secundaria"
+                  src="/images/categoria_2.jpg"
+                  alt=""
+                />
+                <img
+                  class="_imagen-secundaria"
+                  src="/images/categoria_2.jpg"
+                  alt=""
+                />
+                <img
+                  class="_imagen-secundaria"
+                  src="/images/categoria_2.jpg"
+                  alt=""
+                />
               </div>
             </div>
           </div>
-          <div class="_producto-descripcion">
-            <span class="_titulo-descripcion">Descripción</span>
-            <p class="_producto-info">
-              <%= productFound.descripcion %>
-            </p>
-          </div>
-          <div class="_producto-colors">
-            <span class="_titulo-colors">Colores</span>
-            <div class="_colores">
-              <button class="_color _color-1"></button>
-              <button class="_color _color-2"></button>
-              <button class="_color _color-3"></button>
+          <div class="_producto-datos">
+            <div class="_producto-header">
+              <h2 class="_producto-nombre"><%= productFound.nombre %></h2>
+              <span class="_producto-precio">$<%= productFound.precio %></span>
+              <div class="_producto-valoracion">
+                <div class="_estrellas">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+                <div class="_cant-valoracion">
+                  <span class="_abreviacion">(4.8)</span>
+                  <span class="_cantidad">1.2k valoraciones</span>
+                </div>
+              </div>
+            </div>
+            <div class="_producto-descripcion">
+              <span class="_titulo-descripcion">Descripción</span>
+              <p class="_producto-info">
+                <%= productFound.descripcion %>
+              </p>
+            </div>
+            <div class="_producto-colors">
+              <span class="_titulo-colors">Colores</span>
+              <div class="_colores">
+                <button class="_color _color-1"></button>
+                <button class="_color _color-2"></button>
+                <button class="_color _color-3"></button>
+              </div>
+            </div>
+            <div class="_producto-sizes">
+              <span class="_titulo-sizes">Talles</span>
+              <div class="_sizes">
+                <button class="_size _size-1">XS</button>
+                <button class="_size _size-2">S</button>
+                <button class="_size _size-3">M</button>
+              </div>
+            </div>
+            <div class="_producto-botones">
+              <button class="_boton _boton-aniadir">
+                <i class="fa-solid fa-bag-shopping"></i> Añadir a carrito
+              </button>
+              <button class="_boton _boton-comprar">Comprar ahora</button>
+              <% if (locals.isAdmin) { %>
+                <a href="/products/edit/<%= productFound.id %>">
+                  <button class="_boton _boton-comprar">Editar producto</button>
+                </a>
+                <form action="/products/delete/<%= productFound.id %>?__method=DELETE" method="post">
+                  <button class="_boton _boton-comprar">Borrar producto</button>
+                </form>
+              <% } %>
             </div>
           </div>
-          <div class="_producto-sizes">
-            <span class="_titulo-sizes">Talles</span>
-            <div class="_sizes">
-              <button class="_size _size-1">XS</button>
-              <button class="_size _size-2">S</button>
-              <button class="_size _size-3">M</button>
-            </div>
+         <% } else { %>
+          <div class="_producto-no-encontrado">
+            <h1>Producto no encontrado</h1>
+            <p>Lo sentimos, no encontramos el producto que buscas</p>
           </div>
-          <div class="_producto-botones">
-            <button class="_boton _boton-aniadir">
-              <i class="fa-solid fa-bag-shopping"></i> Añadir a carrito
-            </button>
-            <button class="_boton _boton-comprar">Comprar ahora</button>
-            <form action="/products/delete/<%= productFound.id %>?__method=DELETE" method="post">
-              <button class="_boton _boton-comprar">Borrar producto</button>
-            </form>
-          </div>
-        </div>
+        <% } %>
       </section>
       <section class="_seccion">
         <i class="fa-solid fa-circle-chevron-left"></i>

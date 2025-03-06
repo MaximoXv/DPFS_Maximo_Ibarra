@@ -98,7 +98,7 @@ const productsController = {
       }|| productFound.categorias;
       productFound.colores= colors|| productFound.colores;
       productFound.tamaños= sizes|| productFound.tamaños;
-      productFound.imagen= req.file.filename || productFound.imagen;
+      productFound.imagen= req.file? req.file.filename : productFound.imagen;
       productFound.visibilidad= req.body.visibility || productFound.visibilidad;
         
 

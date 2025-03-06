@@ -12,7 +12,7 @@ const indexController = {
         console.log(productsVerano);
         console.log(productsInvierno);
         
-        res.render("home.ejs", {productsPrimavera,productsVerano,productsInvierno})
+        res.render("home.ejs", {productsPrimavera,productsVerano,productsInvierno, user: req.session.userLogged})
     }
 }
 

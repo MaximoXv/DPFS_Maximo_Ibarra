@@ -5,17 +5,26 @@
 
   <body class="_body">
     <main class="_main">
-      <section class="_login">
+      <form action="/users/login" method="post" class="_login">
         <h1 class="_titulo-login">Login</h1>
-        <label class="_label-email" for="email">Usuario o email</label>
-        <input class="_input-email" type="email" name="email" id="email" />
-        <label class="_label-password" for="password">Contraseña</label>
+        <label class="_label" for="email">Email</label>
+        <input class="_input" type="email" name="email" id="email" />
+        <label class="_label" for="password">Contraseña</label>
         <input
-          class="_input-password"
+          class="_input"
           type="password"
           name="password"
           id="password"
         />
+        <div class="_mantener-sesion">
+          <label class="_label" for="remember_me">Mantener sesión activa</label>
+          <input
+            class="_input"
+            type="checkbox"
+            name="remember_me"
+            id="remember_me"
+          />
+        </div>
         <a class="_link-olvidaste" href="/">Olvidaste tu contraseña?</a>
         <button class="_boton-ingresar">Ingresar</button>
         <span class="_texto-o">o</span>
@@ -31,7 +40,7 @@
             >Crea una cuenta</a
           ></span
         >
-      </section>
+      </form>
     </main>
   </body>
 </html>

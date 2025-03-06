@@ -51,20 +51,25 @@
     text-align: center;
     margin: 0;
 }
-._body ._main ._login ._label-email,._body ._main ._login ._label-password{
+._body ._main ._login ._label{
     font-size: 0.8rem;
     color: var(--black-color);
 }
-._body ._main ._login ._input-email,._body ._main ._login ._input-password{
+._body ._main ._login ._input{
     font-size: 1.2rem;
     border-radius: 5px;
     border: 1px solid var(--black-color);
 }
 
-._body ._main ._login ._input-email:focus,._body ._main ._login ._input-password:focus{
+._body ._main ._login ._input:focus{
     outline: none;
 }
 
+._body ._main ._login ._mantener-sesion{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
 ._body ._main ._login ._link-olvidaste{
     text-align: end;
@@ -138,6 +143,9 @@
 
 
 @media (max-width: 576px){
+    html{
+        font-size: 12px;
+    }
 
 ._body ._main ._login{
     width: 90%;
@@ -145,6 +153,9 @@
 }
 
 @media (min-width: 501px) and (max-width: 1024px){
+    html{
+        font-size: 14px;
+    }
 ._body ._main ._login{
     width: 50%;
 }

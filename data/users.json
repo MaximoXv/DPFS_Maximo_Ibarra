@@ -8,55 +8,5 @@
   "password": "Andalax",
   "profile_picture": "userDefault.jpg",
   "role": "USER"
- },
- {
-  "id": 2,
-  "name_surname": "Monah Skillitt",
-  "direction": "Calle de la nueva 4000",
-  "phone_number": "(91) 12345687",
-  "email": "mskillitt1@friendfeed.com",
-  "password": "Zamit",
-  "profile_picture": "userDefault.jpg",
-  "role": "USER"
- },
- {
-  "id": 3,
-  "name_surname": "Garrott Veneur",
-  "direction": "Calle de la nueva 5000",
-  "phone_number": "(91) 12345689",
-  "email": "gveneur2@ed.gov",
-  "password": "Mat Lam Tam",
-  "profile_picture": "userDefault.jpg",
-  "role": "USER"
- },
- {
-  "id": 4,
-  "name_surname": "Effie Lasselle",
-  "direction": "Calle de la nueva 6000",
-  "phone_number": "(91) 12345690",
-  "email": "elasselle3@ibm.com",
-  "password": "admin1234",
-  "profile_picture": "userDefault.jpg",
-  "role": "ADMIN"
- },
- {
-  "id": 5,
-  "name_surname": "Davidson",
-  "direction": "Nostrud neque nesciu",
-  "phone_number": "+1 (951) 853-3585",
-  "email": "vygu@mailinator.com",
-  "password": "$2b$08$FDeCFQUq7iRe8vs1VbCA6uWExefOOsphEG1.mTJzYWTVN3smnYuvO",
-  "profile_picture": "user-1741125484105.jpg",
-  "userType": "USER"
- },
- {
-  "id": 6,
-  "name_surname": "Campos",
-  "direction": "Voluptatem vel sed q",
-  "phone_number": "+1 (636) 438-2166",
-  "email": "vafu@mailinator.com",
-  "password": "$2b$08$YKhUARz41aTyZMPtE1fDRubCdN2Y9sKpjsZWgoQAKw7r/EXLF5Dhi",
-  "profile_picture": "userDefault.jpg",
-  "userType": "USER"
  }
 ]

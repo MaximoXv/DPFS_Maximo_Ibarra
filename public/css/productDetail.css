@@ -141,6 +141,24 @@
     gap: 30px;
     height: 500px;
 }
+._body ._main ._seccion-principal ._producto-no-encontrado{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+._body ._main ._seccion-principal ._producto-no-encontrado h1{
+    font-size: 2rem;
+    text-align: center;
+}
+
+._body ._main ._seccion-principal ._producto-no-encontrado p{
+    font-size: 1.2rem;
+    text-align: center;
+}
+
 
 ._body ._main ._seccion-principal ._producto-imagenes{
     display: flex;

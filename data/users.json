@@ -8,5 +8,15 @@
   "password": "Andalax",
   "profile_picture": "userDefault.jpg",
   "role": "USER"
+ },
+ {
+  "id": 2,
+  "name_surname": "Dickerson",
+  "direction": "Ut tempor magni dolo",
+  "phone_number": "+1 (328) 978-1443",
+  "email": "test@gmail.com",
+  "password": "$2b$08$66GDLRSiD3P.GRPVUUIzdeFbcOTuBaeVpV8MYZh0IM5gBIRVefiSm",
+  "profile_picture": "userDefault.jpg",
+  "userType": "ADMIN"
  }
 ]

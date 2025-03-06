@@ -30,6 +30,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    max-width: 120rem;
 }
 
 ._body ._header ._nav-bar{
@@ -275,7 +276,7 @@
     }
 
 ._body ._footer ._footer-contenido ._footer-logo{
-    min-width: 50pxpx;
+    min-width: 50px;
     max-width: 100px;
 }
 
@@ -288,6 +289,9 @@
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+    html{
+        font-size: 16px;
+    }
 ._body ._footer ._footer-contenido{
     width: 100%;
 }

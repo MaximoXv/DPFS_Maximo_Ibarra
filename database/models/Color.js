@@ -2,13 +2,13 @@
 module.exports = (sequelize, DataTypes) => {
     const alias = "Color";
     const cols = {
-      nombre: {
+      name: {
         type: DataTypes.STRING(255),
         validate: {
           min: 3,
         },
       },
-      valor: {
+      value: {
         type: DataTypes.STRING,
       },
     };
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         Color.belongsToMany(model.Product, {
           through: 'ColorProduct',
           foreignKey: 'color_id',
-          otherKey: 'producto_id'
+          otherKey: 'product_id'
         });
       };
   

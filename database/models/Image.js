@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
     const alias = "Image";
     const cols = {
-      URL: {
+      url: {
         type: DataTypes.STRING(255),
 
       },
@@ -17,8 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     Image.associate = (model) => {
         Image.belongsToMany(model.Product, {
           through: 'ImageProduct',
-          foreignKey: 'imagen_id',
-          otherKey: 'producto_id'
+          foreignKey: 'image_id',
+          otherKey: 'product_id'
         });
       };
   

@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
     const alias = "Size";
     const cols = {
-      nombre: {
+      name: {
         type: DataTypes.STRING(255),
       },
     };
@@ -17,8 +17,8 @@ module.exports = (sequelize, DataTypes) => {
         // Definimos la relación muchos a muchos con Producto
         Size.belongsToMany(models.Product, {
           through: 'SizeProduct',
-          foreignKey: 'tamaño_id',
-          otherKey: 'producto_id'
+          foreignKey: 'size_id',
+          otherKey: 'product_id'
         });
       };
   

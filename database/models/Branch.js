@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
     const alias = "Branch";
     const cols = {
-      nombre: {
+      name: {
         type: DataTypes.STRING,
       },
     };
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   
     Branch.associate = (model) => {
         Branch.hasMany(model.Product, {
-          foreignKey: 'marca_id'
+          foreignKey: 'branch_id'
         });
       };
   

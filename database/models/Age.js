@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
     const alias = "Age";
     const cols = {
-      nombre: {
+      name: {
         type: DataTypes.STRING,
       },
     };
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   
     Age.associate = (model) => {
         Age.hasMany(model.Category, {
-          foreignKey: 'edad_id'
+          foreignKey: 'age_id'
         });
       };
   

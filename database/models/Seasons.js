@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
     const alias = "Season";
     const cols = {
-      nombre: {
+      name: {
         type: DataTypes.STRING,
       },
     };
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   
     Season.associate = (models) => {
         Season.hasMany(models.Category, {
-          foreignKey: 'temporada_id'
+          foreignKey: 'season_id'
         });
       };
   

@@ -3,35 +3,35 @@
 module.exports = (sequelize, DataTypes) => {
   const alias = "Product";
   const cols = {
-    nombre: {
+    name: {
       type: DataTypes.STRING(255),
       validate: {
         min: 3,
       },
     },
-    descripcion: {
+    description: {
       type: DataTypes.STRING,
     },
-    modelo: {
+    model: {
       type: DataTypes.STRING,
     },
-    precio: {
+    price: {
       type: DataTypes.INTEGER(11),
     },
     stock: {
       type: DataTypes.INTEGER(11),
     },
-    visibilidad: {
+    visibility: {
         type: DataTypes.BOOLEAN,
     },
-    categoria_id: {
+    category_id: {
       type: DataTypes.INTEGER(11),
       references: {
         model: 'categories',
         key: 'id'
       }
     },
-    marca_id: {
+    branch_id: {
         type: DataTypes.INTEGER(11),
         references: {
             model: 'branches',
@@ -49,28 +49,28 @@ module.exports = (sequelize, DataTypes) => {
   Product.associate = (model) => {
     // Asociacion categorias
     Product.belongsTo(model.Category, {
-      as: "categoria",
-      foreignKey: "categoria_id",
+      as: "category",
+      foreignKey: "category_id",
     });
     Product.belongsTo(model.Branch, {
-      as: "marca",
-      foreignKey: "marca_id",
+      as: "branch",
+      foreignKey: "branch_id",
     });
     // Asociacion a muchos
     Product.belongsToMany(model.Color, {
       through: "ColorProduct",
-      foreignKey: "producto_id",
+      foreignKey: "product_id",
       otherKey: "color_id"
     });
     Product.belongsToMany(model.Size, {
         through: "SizeProduct",
-        foreignKey: "producto_id",
-        otherKey: "tamaño_id"
+        foreignKey: "product_id",
+        otherKey: "size_id"
       });
       Product.belongsToMany(model.Image, {
         through: "ImageProduct",
-        foreignKey: "producto_id",
-        otherKey: "imagen_id"
+        foreignKey: "product_id",
+        otherKey: "image_id"
       });
   };
 

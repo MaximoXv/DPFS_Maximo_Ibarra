@@ -3,21 +3,21 @@
 module.exports = (sequelize, DataTypes) => {
     const alias = "Category";
     const cols = {
-      genero_id: {
+      genre_id: {
         type: DataTypes.INTEGER(11),
         references: {
             model: 'genres',
             key: 'id'
           }
       },
-      edad_id: {
+      age_id: {
         type: DataTypes.INTEGER(11),
         references: {
             model: 'ages',
             key: 'id'
           }
       },
-      temporada_id: {
+      season_id: {
         type: DataTypes.INTEGER(11),
         references: {
             model: 'seasons',
@@ -34,19 +34,19 @@ module.exports = (sequelize, DataTypes) => {
   
     Category.associate = (model) => {
         Category.hasMany(model.Product, {
-          foreignKey: 'categoria_id'
+          foreignKey: 'category_id'
         });
         Category.belongsTo(model.Genre, {
-          as: "genero",
-          foreignKey: "genero_id",
+          as: "genre",
+          foreignKey: "genre_id",
         });
         Category.belongsTo(model.Age, {
-          as: "edad",
-          foreignKey: "edad_id",
+          as: "age",
+          foreignKey: "age_id",
         });
         Category.belongsTo(model.Season, {
-          as: "temporada",
-          foreignKey: "temporada_id",
+          as: "season",
+          foreignKey: "season_id",
         });
       };
 

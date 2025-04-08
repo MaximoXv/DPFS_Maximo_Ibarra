@@ -7,6 +7,8 @@ const morgan = require("morgan");
 const path = require("path");
 const app = express();
 const port = 3000;
+const cors = require("cors");
+const db = require("./database/models");
 
 const indexRouter = require("./routes/index.routes");
 const usersRouter = require("./routes/users.routes");
@@ -21,6 +23,7 @@ app.set("views", path.join(__dirname, "views"));
 //middlewares
 //para que nuestra app entienda lo que viene del formulario
 app.use(morgan("tiny"));
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, "public")));
@@ -42,6 +45,8 @@ app.use(function(req,res){
 })
 
 
-app.listen(port, ()=>{
+app.listen(port, async ()=>{
+
+    await db.sequelize.sync({force: true});
     console.log(`Servidor corriendo en el puerto http://localhost:${port}`)
 });

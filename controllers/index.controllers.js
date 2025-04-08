@@ -2,8 +2,20 @@ let fs = require("fs")
 const path = require("path");
 const productsPath = path.join(__dirname,"..","data","ropa.json")
 
+const {Product} = require("../database/models");
+
+
 const indexController = {
-    getHome: (req,res)=>{
+    getHome: async (req,res)=>{
+
+        try {
+             const productsDB = await Product.findAll()
+             console.log(productsDB);
+        } catch (error) {
+            
+        }
+
+
         const products = JSON.parse(fs.readFileSync(productsPath,"utf-8"))
         const productsPrimavera = products.filter((product)=>{return product.categorias.estacion == "primavera"})
         const productsVerano = products.filter((product)=>{return product.categorias.estacion == "verano"})

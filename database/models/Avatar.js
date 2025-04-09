@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     const Avatar = sequelize.define(alias, cols, config);
   
     Avatar.associate = (model) => {
-        Avatar.hasMany(model.Product, {
+        Avatar.hasMany(model.User, {
           foreignKey: 'avatar_id'
         });
       };

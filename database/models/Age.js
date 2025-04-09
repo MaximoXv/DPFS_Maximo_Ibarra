@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     const Age = sequelize.define(alias, cols, config);
   
     Age.associate = (model) => {
-        Age.hasMany(model.Category, {
+        Age.hasMany(model.Product, {
           foreignKey: 'age_id'
         });
       };

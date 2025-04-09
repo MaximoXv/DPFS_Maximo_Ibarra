@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     const Season = sequelize.define(alias, cols, config);
   
     Season.associate = (models) => {
-        Season.hasMany(models.Category, {
+        Season.hasMany(models.Product, {
           foreignKey: 'season_id'
         });
       };

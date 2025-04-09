@@ -24,20 +24,34 @@ module.exports = (sequelize, DataTypes) => {
     visibility: {
         type: DataTypes.BOOLEAN,
     },
-    category_id: {
-      type: DataTypes.INTEGER(11),
-      references: {
-        model: 'categories',
-        key: 'id'
-      }
-    },
     branch_id: {
-        type: DataTypes.INTEGER(11),
+        type: DataTypes.INTEGER,
         references: {
             model: 'branches',
             key: 'id'
           }
-    }
+    },
+    genre_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'genres',
+        key: 'id'
+      }
+    },
+    age_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'ages',
+        key: 'id'
+      }
+    },
+    season_id: {
+      type: DataTypes.INTEGER,
+      references: {
+          model: 'seasons',
+          key: 'id'
+        }
+  },
   };
   const config = {
     tableName: "products",
@@ -47,14 +61,21 @@ module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define(alias, cols, config);
 
   Product.associate = (model) => {
-    // Asociacion categorias
-    Product.belongsTo(model.Category, {
-      as: "category",
-      foreignKey: "category_id",
-    });
     Product.belongsTo(model.Branch, {
       as: "branch",
       foreignKey: "branch_id",
+    });
+    Product.belongsTo(model.Genre, {
+      as: "genre",
+      foreignKey: "genre_id",
+    });
+    Product.belongsTo(model.Age, {
+      as: "age",
+      foreignKey: "age_id",
+    });
+    Product.belongsTo(model.Season, {
+      as: "season",
+      foreignKey: "season_id",
     });
     // Asociacion a muchos
     Product.belongsToMany(model.Color, {

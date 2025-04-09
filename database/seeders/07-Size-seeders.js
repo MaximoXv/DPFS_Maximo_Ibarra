@@ -8,9 +8,10 @@ module.exports = {
       [
           { name: "xs" },
           { name: "s" },
+          { name: "m" },
           { name: "l" },
           { name: "xl" },
-          { name: "xll" },
+          { name: "xxl" },
       ],
       {}
     );

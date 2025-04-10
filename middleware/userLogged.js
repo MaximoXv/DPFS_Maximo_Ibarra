@@ -6,7 +6,7 @@ async function userLogged (req, res, next)  {
         res.locals.isLogged = true;
         res.locals.userLogged = req.session.userLogged;
 
-        req.session?.userLogged.userType == 3 ? (res.locals.isAdmin = true) : null;
+        req.session?.userLogged.role_id == 3 ? (res.locals.isAdmin = true) : null;
     }
     if(req.session?.userLogged && req.cookies?.email){
 
@@ -20,7 +20,7 @@ async function userLogged (req, res, next)  {
             req.session.userLogged = userFound;
             res.locals.isLogged = true;
             res.locals.userLogged = req.session.userLogged;
-        req.session?.userLogged.userType == 3 ? (res.locals.isAdmin = true) : null;
+        req.session?.userLogged.role_id == 3 ? (res.locals.isAdmin = true) : null;
 
         }
     }

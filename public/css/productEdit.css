@@ -149,13 +149,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 2rem;
+  height: 2rem;
   text-align: center;
   font-size: 0.6rem;
   border: 2px solid var(--black-color);
   border-radius: 50%;
   transition: all 0.3s;
+  text-transform: uppercase;
 }
 
 ._body ._main ._section-1 ._form-container ._divition-1 ._form-section ._form-group ._checkbox-container ._checkbox-box ._checkbox-label:hover{

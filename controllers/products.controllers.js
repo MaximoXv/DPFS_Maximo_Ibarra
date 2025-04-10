@@ -3,7 +3,6 @@ let path = require("path");
 const db = require("../database/models");
 const { where } = require("sequelize");
 
-const productsPath = path.join(__dirname, "..", "data", "ropa.json")
 
 const productsController = {
     detail: async (req,res)=>{
@@ -13,117 +12,179 @@ const productsController = {
             },
             include: [{model: db.Season, as: "season"},{model: db.Age, as: "age"},{model: db.Genre, as: "genre"},{model: db.Branch, as: "branch"},{model: db.Image,through: { attributes: [] }},{model: db.Color,through: { attributes: [] }},{model: db.Size,through: { attributes: [] }}]
         })
-        // console.log(productFound);
-        // res.json(productFound);
-        
         res.render("products/detail.ejs", {productFound})
     },
     cart: (req,res)=>{
         res.render("products/cart.ejs")
     },
-    addPage: (req,res)=>{
-        res.render("products/add.ejs")
-    },
-    create: (req,res)=>{
-        let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"))
-        // const {name,brand,model, description,price,stock,categorySeason,categoryAge, color} = req.body;
-        let colors = [];
-        let sizes = [];
-        req.body.color1?colors.push(req.body.color1):"";
-        req.body.color2?colors.push(req.body.color2):"";
-        req.body.color3?colors.push(req.body.color3):"";
-        req.body.color4?colors.push(req.body.color4):"";
-        req.body.size1?sizes.push(req.body.size1):"";
-        req.body.size2?sizes.push(req.body.size2):"";
-        req.body.size3?sizes.push(req.body.size3):"";
-        req.body.size4?sizes.push(req.body.size4):"";
-        req.body.size5?sizes.push(req.body.size5):"";
-        req.body.size6?sizes.push(req.body.size6):"";
-
-        //checkear que los name de los inputs esten bien puestos
-        let newClothe = {
-            id: products[products.length - 1].id + 1,
-            nombre: req.body.name,
-            marca: req.body.brand,
-      modelo: req.body.model,
-      descripcion: req.body.description,
-      precio: req.body.price,
-      stock: req.body.stock,
-      categorias: {
-        estacion: req.body.categorySeason,
-        edad: req.body.categoryAge,
-        genero: req.body.categoryGenre,
-      },
-      colores: colors,
-      tamaños: sizes,
-      imagen: req.file? req.file.filename : "imagendefault.jpg",
-      visibilidad: req.body.visibility
+    addPage: async(req,res)=>{
+        try {
+            const seasonsDB = await db.Season.findAll();
+            const agesDB = await db.Age.findAll();
+            const sizesDB = await db.Size.findAll();
+            const genresDB = await db.Genre.findAll();
+            const branchesDB = await db.Branch.findAll();
+            const colorsDB = await db.Color.findAll();
+            res.render("products/add.ejs", {seasonsDB,agesDB,sizesDB,genresDB,branchesDB,colorsDB});
+        } catch (error) {
+            console.log(error);
+            
         }
-        console.log("aca va el body",req.body)
-        console.log("aca va el file",req.file);
-        
-
-        products.push(newClothe);
-        fs.writeFileSync(productsPath, JSON.stringify(products, null, " "))
-        console.log("se creó correctamente");
-        
-        res.redirect("/")
     },
-    editPage: (req,res)=>{
-        let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"))
-        const productFound = products.find((product)=>product.id == req.params.id)
-        res.render("products/edit.ejs", {productFound})
-    },
-    update: (req,res)=>{
-        console.log(req.body);
-        console.log(req.file);
-        let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"))
-        let productFound = products.find((product)=>product.id == req.params.id)
-        let colors = [];
-        let sizes = [];
-        req.body.color1?colors.push(req.body.color1):"";
-        req.body.color2?colors.push(req.body.color2):"";
-        req.body.color3?colors.push(req.body.color3):"";
-        req.body.color4?colors.push(req.body.color4):"";
-        req.body.size1?sizes.push(req.body.size1):"";
-        req.body.size2?sizes.push(req.body.size2):"";
-        req.body.size3?sizes.push(req.body.size3):"";
-        req.body.size4?sizes.push(req.body.size4):"";
-        req.body.size5?sizes.push(req.body.size5):"";
-        req.body.size6?sizes.push(req.body.size6):"";
+    create: async(req,res)=>{
+        try {
 
-
-            productFound.id = productFound.id;
-            productFound.nombre = req.body.name || productFound.nombre;
-            productFound.marca = req.body.brand|| productFound.marca;
-      productFound.modelo = req.body.model|| productFound.modelo;
-      productFound.descripcion = req.body.description|| productFound.descripcion;
-      productFound.precio = req.body.price|| productFound.precio;
-      productFound.stock = req.body.stock|| productFound.stock;
-      productFound.categorias = {
-        estacion: req.body.categorySeason|| productFound.categorias.estacion,
-        edad: req.body.categoryAge|| productFound.categorias.edad,
-        genero: req.body.categoryGenre|| productFound.categorias.genero,
-      }|| productFound.categorias;
-      productFound.colores= colors|| productFound.colores;
-      productFound.tamaños= sizes|| productFound.tamaños;
-      productFound.imagen= req.file? req.file.filename : productFound.imagen;
-      productFound.visibilidad= req.body.visibility || productFound.visibilidad;
+            const {
+              name,
+              description,
+              model,
+              price,
+              stock,
+              visibility,
+              genre_id,
+              age_id,
+              season_id,
+              branch_id,
+              colors,
+              sizes
+            } = req.body;
+        
+            const product = await db.Product.create({
+              name,
+              description,
+              model,
+              price,
+              stock,
+              visibility,
+              genre_id,
+              age_id,
+              season_id,
+              branch_id
+            });
         
 
-        fs.writeFileSync(productsPath, JSON.stringify(products, null, " "))
-        res.redirect("/")
+            if (colors && colors.length > 0) {
+              await product.setColors(colors);
+            }
+
+            if (sizes && sizes.length > 0) {
+              await product.setSizes(sizes);
+            }
         
+            if (req.file) {
+              const image = await db.Image.create({
+                url: req.file.filename
+              });
+        
+              await product.addImage(image);
+            }
+        
+            res.redirect("/");
+        
+          } catch (error) {
+            console.log(error);
+            
+          }
     },
-    destroy:(req,res)=>{
-        let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
-        const productFound = products.find(product=>product.id == req.params.id);
-        if(productFound.imagen != "imagendefault.jpg"){
-            fs.unlinkSync(path.join(__dirname, "..", "public", "images",productFound.imagen));
+    editPage: async(req,res)=>{
+        try {
+            const productFound = await db.Product.findOne({
+                where: {
+                    id: req.params.id
+                },
+                include: [{model: db.Season, as: "season"},{model: db.Age, as: "age"},{model: db.Genre, as: "genre"},{model: db.Branch, as: "branch"},{model: db.Image,through: { attributes: [] }},{model: db.Color,through: { attributes: [] }},{model: db.Size,through: { attributes: [] }}]
+            })
+            const seasonsDB = await db.Season.findAll();
+            const agesDB = await db.Age.findAll();
+            const sizesDB = await db.Size.findAll();
+            const genresDB = await db.Genre.findAll();
+            const branchesDB = await db.Branch.findAll();
+            const colorsDB = await db.Color.findAll();
+            res.render("products/edit.ejs", {productFound,seasonsDB,agesDB,sizesDB,genresDB,branchesDB,colorsDB});
+        } catch (error) {
+            console.log(error);
         }
-        products = products.filter(product=>product.id != req.params.id);
-        fs.writeFileSync(productsPath, JSON.stringify(products, null, " "));
-        res.redirect("/")
+    },
+    update: async(req,res)=>{
+        try {
+            const { id } = req.params;
+        
+            const {
+              name,
+              description,
+              model,
+              price,
+              stock,
+              visibility,
+              genre_id,
+              age_id,
+              season_id,
+              branch_id,
+              colors,
+              sizes 
+            } = req.body;
+        
+            const product = await db.Product.findByPk(id);
+        
+
+            await product.update({
+              name,
+              description,
+              model,
+              price,
+              stock,
+              visibility,
+              genre_id,
+              age_id,
+              season_id,
+              branch_id
+            });
+        
+        
+            if (colors && colors.length > 0) {
+              await product.setColors(colors); 
+            }
+        
+            if (sizes && sizes.length > 0) {
+              await product.setSizes(sizes); 
+            }
+
+            if (req.file) {
+                const image = await db.Image.create({
+                  url: req.file.filename
+                });
+          
+                await product.addImage(image);
+              }
+
+            res.redirect("/");
+          } catch (error) {
+            console.log(error);
+          }
+
+        
+    },
+    destroy: async(req,res)=>{
+        try {
+
+            const productFound = await db.Product.findOne({
+                where: {
+                    id: req.params.id
+                },
+                include: [{model: db.Image,through: { attributes: [] }}]
+            })
+            const deleted = await db.Product.destroy({
+                where: { id: req.params.id }
+              });
+              productFound.Images.forEach((image)=>{
+                  if(image.url != "imagendefault.jpg"){
+                    fs.unlinkSync(path.join(__dirname, "..", "public", "images",image.url));
+                }
+              });
+              res.redirect("/")
+        } catch (error) {
+            console.log(error);      
+        }
     }
 }
 

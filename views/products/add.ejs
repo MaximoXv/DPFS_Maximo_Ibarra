@@ -19,9 +19,12 @@
                                     </div>
                                     <div class="_form-double-group">
                                         <div class="_form-group">
-                                            <label for="brand">Marca</label>
-                                            <input class="_input" type="text" name="brand" id="brand"
-                                                placeholder="Marca del producto" />
+                                            <label for="branch_id">Marca</label>
+                                            <select class="_select" name="branch_id" id="branch_id">
+                                                <% branchesDB.forEach(branch => { %>
+                                                    <option value="<%= branch.id %>"><%= branch.name %></option>
+                                                <% }) %>
+                                            </select>
                                         </div>
                                         <div class="_form-group">
                                             <label for="model">Modelo</label>
@@ -56,56 +59,48 @@
                                     <h2  class="_title-section">Categorias y detalles</h2>
                                     <div class="_form-triple-group">
                                         <div class="_form-group">
-                                            <label for="categorySeason">Estación</label>
-                                            <select class="_select" name="categorySeason" id="categorySeason">
-                                                <option value="invierno">Invierno</option>
-                                                <option value="verano">Verano</option>
-                                                <option value="otoño">Otoño</option>
-                                                <option value="primavera">Primavera</option>
+                                            <label for="season_id">Estación</label>
+                                            <select class="_select" name="season_id" id="season_id">
+                                                <% seasonsDB.forEach(season => { %>
+                                                    <option value="<%= season.id %>"><%= season.name %></option>
+                                                <% }) %>
                                             </select>
                                         </div>
                                         <div class="_form-group">
-                                            <label for="categoryAge">Rango de edad</label>
-                                            <select class="_select" name="categoryAge" id="categoryAge">
-                                                <option value="bebe">Bebés</option>
-                                                <option value="niño">Niños</option>
-                                                <option value="adolescente">Adolescentes</option>
-                                                <option value="adulto">Adultos</option>
+                                            <label for="age_id">Rango de edad</label>
+                                            <select class="_select" name="age_id" id="age_id">
+                                                <% agesDB.forEach(age => { %>
+                                                    <option value="<%= age.id %>"><%= age.name %></option>
+                                                <% }) %>
                                             </select>
                                         </div>
                                         <div class="_form-group">
-                                            <label for="categoryGenre">Genero</label>
-                                            <select class="_select" name="categoryGenre" id="categoryGenre">
-                                                <option value="masculino">Masculino</option>
-                                                <option value="femenino">Femenino</option>
+                                            <label for="genre_id">Genero</label>
+                                            <select class="_select" name="genre_id" id="genre_id">
+                                                <% genresDB.forEach(genre => { %>
+                                                    <option value="<%= genre.id %>"><%= genre.name %></option>
+                                                <% }) %>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="_form-group">
                                         <label for="colors">Colores</label>
                                         <div class="_checkbox-container">
-                                            <div class="_checkbox-box">
-                                                <input type="checkbox" name="color1" id="color1" value="#f3f3f3" />
-                                                <label class="_checkbox-label _label-color-1" for="color1">
-                                                    
+                                            <% colorsDB.forEach((color, index) => { %>
+                                                <div class="_checkbox-box">
+                                                    <input 
+                                                    type="checkbox" 
+                                                    name="colors[]" 
+                                                    id="color<%= index + 1 %>" 
+                                                    value="<%= color.id %>" 
+                                                    />
+                                                    <label 
+                                                    class="_checkbox-label" 
+                                                    for="color<%= index + 1 %>" 
+                                                    style="background-color: <%= color.value %>">
                                                 </label>
-                                            </div>
-                                            <div class="_checkbox-box">
-                                                <input type="checkbox" name="color2" id="color2" value="#181818" />
-                                                <label class="_checkbox-label _label-color-2" for="color2">
-                                                    
-                                                </label>
-                                            </div>
-                                            <div class="_checkbox-box">
-                                                <input type="checkbox" name="color3" id="color3" value="#4177eb" />
-                                                <label class="_checkbox-label _label-color-3" for="color3">
-                                                    
-                                                </label>
-                                            </div>
-                                            <div class="_checkbox-box">
-                                                <input type="checkbox" name="color4" id="color4" value="#b8b8b8" />
-                                                <label class="_checkbox-label _label-color-4" for="color4"></label>
-                                            </div>
+                                                </div>
+                                            <% }) %>
 
                                         </div>
                                         
@@ -113,42 +108,21 @@
                                     <div class="_form-group">
                                         <label for="sizes">Talles</label>
                                         <div class="_checkbox-container">
-                                            <div class="_checkbox-box">
-                                                <input type="checkbox" name="size1" id="size1" value="xs" />
-                                                <label class="_checkbox-label _label-size-1" for="size1">
-                                                    XS
-                                                </label>
-                                            </div>
-                                            <div class="_checkbox-box">
-                                                <input type="checkbox" name="size2" id="size2" value="s" />
-                                                <label class="_checkbox-label _label-size-2" for="size2">
-                                                    S
-                                                </label>
-                                            </div>
-                                            <div class="_checkbox-box">
-                                                <input type="checkbox" name="size3" id="size3" value="m" />
-                                                <label class="_checkbox-label _label-size-3" for="size3">
-                                                    M
-                                                </label>
-                                            </div>
-                                            <div class="_checkbox-box">
-                                                <input type="checkbox" name="size4" id="size4" value="l" />
-                                                <label class="_checkbox-label _label-size-4" for="size4">
-                                                    L
-                                                </label>
-                                            </div>
-                                            <div class="_checkbox-box">
-                                                <input type="checkbox" name="size5" id="size5" value="xl" />
-                                                <label class="_checkbox-label _label-size-5" for="size5">
-                                                    XL
-                                                </label>
-                                            </div>
-                                            <div class="_checkbox-box">
-                                                <input type="checkbox" name="size6" id="size6" value="xxl" />
-                                                <label class="_checkbox-label _label-size-6" for="size6">
-                                                    XXL
-                                                </label>
-                                            </div>
+                                            <% sizesDB.forEach((size, index) => { %>
+                                                <div class="_checkbox-box">
+                                                    <input 
+                                                        type="checkbox" 
+                                                        name="sizes[]" 
+                                                        id="size<%= index + 1 %>" 
+                                                        value="<%= size.id %>" 
+                                                    />
+                                                    <label 
+                                                        class="_checkbox-label" 
+                                                        for="size<%= index + 1 %>">
+                                                        <%= size.name %>
+                                                    </label>
+                                                </div>
+                                            <% }) %>
 
                                         </div>
                                         
@@ -174,8 +148,8 @@
                                     <h2  class="_title-section">Visibilidad</h2>
                                     <div class="_form-group">
                                         <select class="_select" name="visibility" id="visibility">
-                                            <option value="publico">Publico</option>
                                             <option value="oculto">Oculto</option>
+                                            <option value="publico">Publico</option>
                                         </select>
                                     </div>
                                 </div>

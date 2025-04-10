@@ -31,7 +31,7 @@ module.exports = {
         visibility: 1,
         genre_id: masculinoId, // masculino
         age_id: ninioId, // niño
-        season_id: inviernoId, // invierno
+        season_id: primaveraId, // invierno
         branch_id: getRandomInt(1, 10),
       },
       {
@@ -55,7 +55,7 @@ module.exports = {
         visibility: 1,
         genre_id: masculinoId, // masculino
         age_id: adultoId, // adulto
-        season_id: inviernoId, // invierno
+        season_id: primaveraId, // invierno
         branch_id: getRandomInt(1, 10),
       },
       {
@@ -139,7 +139,7 @@ module.exports = {
         visibility: 1,
         genre_id: femeninoId, // femenino
         age_id: adultoId, // adulto
-        season_id: inviernoId, // invierno
+        season_id: primaveraId, // invierno
         branch_id: getRandomInt(1, 10),
       },
       {
@@ -247,7 +247,7 @@ module.exports = {
         visibility: 1,
         genre_id: femeninoId, // femenino
         age_id: ninioId, // niña
-        season_id: inviernoId, // invierno
+        season_id: primaveraId, // invierno
         branch_id: getRandomInt(1, 10),
       },
       {

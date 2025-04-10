@@ -1,12 +1,21 @@
 let fs = require("fs")
 let path = require("path");
+const db = require("../database/models");
+const { where } = require("sequelize");
 
 const productsPath = path.join(__dirname, "..", "data", "ropa.json")
 
 const productsController = {
-    detail: (req,res)=>{
-        let products = JSON.parse(fs.readFileSync(productsPath, "utf-8"))
-        const productFound = products.find((product)=>product.id == req.params.id)
+    detail: async (req,res)=>{
+        const productFound = await db.Product.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [{model: db.Season, as: "season"},{model: db.Age, as: "age"},{model: db.Genre, as: "genre"},{model: db.Branch, as: "branch"},{model: db.Image,through: { attributes: [] }},{model: db.Color,through: { attributes: [] }},{model: db.Size,through: { attributes: [] }}]
+        })
+        // console.log(productFound);
+        // res.json(productFound);
+        
         res.render("products/detail.ejs", {productFound})
     },
     cart: (req,res)=>{

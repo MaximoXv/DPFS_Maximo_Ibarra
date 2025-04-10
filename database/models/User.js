@@ -20,12 +20,8 @@ module.exports = (sequelize, DataTypes) => {
       password: {
         type: DataTypes.STRING,
       },
-      avatar_id: {
-        type: DataTypes.INTEGER(11),
-        references: {
-          model: 'avatars',
-          key: 'id'
-        }
+      avatar: {
+        type: DataTypes.STRING,
       },
       role_id: {
         type: DataTypes.INTEGER(11),
@@ -45,10 +41,6 @@ module.exports = (sequelize, DataTypes) => {
   
     User.associate = (model) => {
       // Asociacion categorias
-      User.belongsTo(model.Avatar, {
-        as: "avatar",
-        foreignKey: "avatar_id",
-      });
       User.belongsTo(model.Role, {
         as: "role",
         foreignKey: "role_id",

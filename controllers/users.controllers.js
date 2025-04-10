@@ -1,59 +1,79 @@
 const bcyrpt = require("bcrypt");
-let fs = require("fs");
-let path = require("path");
+const db = require("../database/models");
 
-const usersPath = path.join(__dirname, "..", "data", "users.json");
 const usersControllers = {
   login: (req, res) => {
     res.render("users/login.ejs");
   },
-  processLogin: (req, res) =>{
-    let users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
-    const userFound = users.find((user)=>user.email == req.body.email);
-    if(userFound){
-      let passwordOk = bcyrpt.compareSync(req.body.password, userFound.password);
-      if(passwordOk){
-        delete userFound.password;
-        req.session.userLogged = userFound;
-        if(req.body.remember_me == "on"){
-          res.cookie("email", userFound.email, {
-            maxAge: 1000 * 60 *5
-          });
+  processLogin: async (req, res) =>{
+
+    try {
+      let userFound = await db.User.findOne({
+        where: {
+          email: req.body.email,
+        },
+      });
+
+      if(userFound){
+        let passwordOk = bcyrpt.compareSync(req.body.password, userFound.password);
+        if(passwordOk){
+          delete userFound.password;
+          req.session.userLogged = userFound;
+          if(req.body.remember_me == "on"){
+            res.cookie("email", userFound.email, {
+              maxAge: 1000 * 60 *5
+            });
+          }
+          res.redirect("/");
+        }else{
+          res.redirect("/users/login");
         }
-        res.redirect("/");
       }else{
         res.redirect("/users/login");
       }
-    }else{
-      res.redirect("/users/login");
+    } catch (error) {
+      console.log(error);
+      
     }
+
+
   },
   register: (req, res) => {
     res.render("users/register.ejs");
   },
-  processRegister: (req, res) => {
-    let users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
+  processRegister: async(req, res) => {
+    try {
 
-    passwordHash = bcyrpt.hashSync(req.body.password, 8);
-    let newUser = {
-      id: users[users.length -1].id + 1,
-      name_surname: req.body.name_surname,
+      const passwordHash = bcyrpt.hashSync(req.body.password, 8);
+
+    const newUser = await db.User.create({
+      fullname: req.body.fullname,
       direction: req.body.direction,
-      phone_number: req.body.phone_number,
+      phonenumber: req.body.phonenumber,
       email: req.body.email,
       password: passwordHash,
-      profile_picture: req.file? req.file.filename : "userDefault.jpg",
-      userType: "USER",
-    };
+      avatar: req.file? req.file.filename : "userDefault.jpg",
+      role_id: 1
+    });
 
-    users.push(newUser);
-    fs.writeFileSync(usersPath, JSON.stringify(users, null, " "));
+    const userSession = {
+      id: newUser.id,
+      fullname: newUser.fullname,
+      email: newUser.email,
+      avatar: newUser.avatar,
+      role_id: newUser.role_id
+    }
 
-    delete newUser.password;
-    req.session.userLogged = newUser;
+    req.session.userLogged = userSession;
     console.log(req.body.password);
     console.log(passwordHash);
     res.redirect("/");
+      
+    } catch (error) {
+      console.log(error);
+    }
+
+    
   },
   logout: (req, res)=>{
     res.clearCookie("email");

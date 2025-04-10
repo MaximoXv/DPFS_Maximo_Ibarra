@@ -8,9 +8,10 @@
     <main class="_main">
       <section class="_seccion-principal">
         <% if (productFound) { %>
+          
           <div class="_producto-imagenes">
             <i class="fa-regular fa-heart"></i>
-            <img class="_imagen-principal" src="/images/<%= productFound.imagen %>" alt="" />
+            <img class="_imagen-principal" src="/images/<%= productFound.Images[0].url %>" alt="<%= productFound.name %>" />
             <div class="_imagenes-secundarias">
               <i class="fa-solid fa-circle-chevron-left"></i>
               <i class="fa-solid fa-circle-chevron-right"></i>
@@ -55,8 +56,8 @@
           </div>
           <div class="_producto-datos">
             <div class="_producto-header">
-              <h2 class="_producto-nombre"><%= productFound.nombre %></h2>
-              <span class="_producto-precio">$<%= productFound.precio %></span>
+              <h2 class="_producto-nombre"><%= productFound.name %></h2>
+              <span class="_producto-precio">$<%= productFound.price %></span>
               <div class="_producto-valoracion">
                 <div class="_estrellas">
                   <i class="fa-solid fa-star"></i>
@@ -74,23 +75,49 @@
             <div class="_producto-descripcion">
               <span class="_titulo-descripcion">Descripción</span>
               <p class="_producto-info">
-                <%= productFound.descripcion %>
+                <%= productFound.description %>
               </p>
             </div>
             <div class="_producto-colors">
               <span class="_titulo-colors">Colores</span>
               <div class="_colores">
-                <button class="_color _color-1"></button>
-                <button class="_color _color-2"></button>
-                <button class="_color _color-3"></button>
+                <% productFound.Colors.forEach(color => { %>
+                  <% switch (color.name) {
+                    case "Negro":
+                      %>
+                      <button class="_color  _color-1"></button>
+                      <%
+                      break;
+                    case "Azul":
+                      %>
+                      <button class="_color  _color-2"></button>
+                      <%
+                    break;
+                    case "Gris":
+                      %>
+                      <button class="_color  _color-3"></button>
+                      <%
+                    break;
+                    case "Blanco":
+                      %>
+                      <button class="_color  _color-4"></button>
+                      <%
+                    break;
+                    default:
+                      break;
+                  } %>
+                  
+                 
+                <% }) %>
               </div>
             </div>
             <div class="_producto-sizes">
               <span class="_titulo-sizes">Talles</span>
               <div class="_sizes">
-                <button class="_size _size-1">XS</button>
-                <button class="_size _size-2">S</button>
-                <button class="_size _size-3">M</button>
+                <% productFound.Sizes.forEach(size=>{%>
+                  <button class="_size"><%= size.name%></button>
+                  
+                  <%}) %>
               </div>
             </div>
             <div class="_producto-botones">

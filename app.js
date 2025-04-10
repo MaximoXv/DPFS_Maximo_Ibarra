@@ -47,6 +47,6 @@ app.use(function(req,res){
 
 app.listen(port, async ()=>{
 
-    await db.sequelize.sync({force: true});
+    // await db.sequelize.sync({force: true});
     console.log(`Servidor corriendo en el puerto http://localhost:${port}`)
 });

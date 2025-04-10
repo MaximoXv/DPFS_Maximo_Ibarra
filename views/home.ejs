@@ -59,87 +59,36 @@
           </div>
         </div>
       </section>
-      <section class="_seccion">
-        <i class="fa-solid fa-circle-chevron-left"></i>
-        <i class="fa-solid fa-circle-chevron-right"></i>
 
-        <div class="_seccion-header">
-          <h2 class="_seccion-titulo"><%= productsVerano[0].categorias.estacion.charAt(0).toUpperCase() + productsVerano[0].categorias.estacion.slice(1) %></h2>
-          <button class="_seccion-ver-mas">Ver mas</button>
-        </div>
-        <div class="_seccion-contenido">
-          <% productsVerano.forEach(product => { %>
-            <a href="/products/detail/<%= product.id %>">
-              <div class="_tarjeta">
-                <i class="fa-regular fa-heart"></i>
-                <img class="_tarjeta-imagen" src="/images/<%= product.imagen %>" alt="<%= product.nombre %>" />
-                <div class="_tarjeta-textos">
-                  <span class="_tarjeta-nombre"><%= product.nombre %></span>
-                  <span class="_tarjeta-marca"><%= product.marca %></span>
-                  <span class="_precio">$<%= product.precio %></span>
+      <% seasonsDB.forEach(season => { %>
+        <section class="_seccion">
+          <i class="fa-solid fa-circle-chevron-left"></i>
+          <i class="fa-solid fa-circle-chevron-right"></i>
+  
+          <div class="_seccion-header">
+            <h2 class="_seccion-titulo"><%= season.name %></h2>
+            <button class="_seccion-ver-mas">Ver mas</button>
+          </div>
+          <div class="_seccion-contenido">
+            <% productsDB.filter(product=>product.season.name == season.name).forEach(product => { %>
+              <a href="/products/detail/<%= product.id %>">
+                <div class="_tarjeta">
+                  <i class="fa-regular fa-heart"></i>
+                  <img class="_tarjeta-imagen" src="/images/<%= product.Images[0].url %>" alt="<%= product.name %>" />
+                  <div class="_tarjeta-textos">
+                    <span class="_tarjeta-nombre"><%= product.name %></span>
+                    <span class="_tarjeta-marca"><%= product.branch.name %></span>
+                    <span class="_precio">$<%= product.price %></span>
+                  </div>
                 </div>
-              </div>
-            </a>
-            
+              </a>
+             
             <% }) %>
-
-
-        </div>
-      </section>
-      <section class="_seccion">
-        <i class="fa-solid fa-circle-chevron-left"></i>
-        <i class="fa-solid fa-circle-chevron-right"></i>
-
-        <div class="_seccion-header">
-          <h2 class="_seccion-titulo"><%= productsInvierno[0].categorias.estacion.charAt(0).toUpperCase() + productsInvierno[0].categorias.estacion.slice(1) %></h2>
-          <button class="_seccion-ver-mas">Ver mas</button>
-        </div>
-        <div class="_seccion-contenido">
-          <% productsInvierno.forEach(product => { %>
-            <a href="/products/detail/<%= product.id %>">
-              <div class="_tarjeta">
-                <i class="fa-regular fa-heart"></i>
-                <img class="_tarjeta-imagen" src="/images/<%= product.imagen %>" alt="<%= product.nombre %>" />
-                <div class="_tarjeta-textos">
-                  <span class="_tarjeta-nombre"><%= product.nombre %></span>
-                  <span class="_tarjeta-marca"><%= product.marca %></span>
-                  <span class="_precio">$<%= product.precio %></span>
-                </div>
-              </div>
-            </a>
-           
-          <% }) %>
-
-
-        </div>
-      </section>
-      <section class="_seccion">
-        <i class="fa-solid fa-circle-chevron-left"></i>
-        <i class="fa-solid fa-circle-chevron-right"></i>
-
-        <div class="_seccion-header">
-          <h2 class="_seccion-titulo"><%= productsPrimavera[0].categorias.estacion.charAt(0).toUpperCase() + productsPrimavera[0].categorias.estacion.slice(1) %></h2>
-          <button class="_seccion-ver-mas">Ver mas</button>
-        </div>
-        <div class="_seccion-contenido">
-          <% productsPrimavera.forEach(product => { %>
-            <a href="/products/detail/<%= product.id %>">
-              <div class="_tarjeta">
-                <i class="fa-regular fa-heart"></i>
-                <img class="_tarjeta-imagen" src="/images/<%= product.imagen %>" alt="<%= product.nombre %>" />
-                <div class="_tarjeta-textos">
-                  <span class="_tarjeta-nombre"><%= product.nombre %></span>
-                  <span class="_tarjeta-marca"><%= product.marca %></span>
-                  <span class="_precio">$<%= product.precio %></span>
-                </div>
-              </div>
-            </a>
-           
-          <% }) %>
-
-
-        </div>
-      </section>
+  
+  
+          </div>
+        </section>
+      <% }) %>
     </main>
     <%- include("./partials/footer.ejs") %>
   </body>

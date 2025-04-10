@@ -17,8 +17,8 @@
       <% if (locals.isLogged) { %>
         <div class="_nav-bar-login">
         
-        <img class="_imagen-perfil" src="/images/users/<%= locals.userLogged.profile_picture %>" alt="" />
-        <span class="_ingresar"><%= locals.userLogged.name_surname %></span>
+        <img class="_imagen-perfil" src="/images/users/<%= locals.userLogged.avatar %>" alt="<%= locals.userLogged.fullname %>" />
+        <span class="_ingresar"><%= locals.userLogged.fullname %></span>
       </div>
           <% } else { %>
             <a class="_link" href="/users/login">

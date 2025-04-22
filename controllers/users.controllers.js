@@ -1,4 +1,5 @@
 const bcyrpt = require("bcrypt");
+const { validationResult } = require("express-validator");
 const db = require("../database/models");
 
 const usersControllers = {
@@ -8,6 +9,12 @@ const usersControllers = {
   processLogin: async (req, res) =>{
 
     try {
+
+      const resultValidation = validationResult(req);
+
+      if (resultValidation.isEmpty()) {
+
+
       let userFound = await db.User.findOne({
         where: {
           email: req.body.email,
@@ -24,13 +31,36 @@ const usersControllers = {
               maxAge: 1000 * 60 *5
             });
           }
-          res.redirect("/");
-        }else{
-          res.redirect("/users/login");
+          return res.redirect("/");
         }
+
+          return res.redirect("/users/login",{
+            errors: {
+              password: {
+                msg: "Credenciales inválidas PASSWORD",
+              },
+            },
+            old: req.body,
+          });
+        
       }else{
-        res.redirect("/users/login");
+        res.redirect("/users/login",{
+          errors: {
+            password: {
+              msg: "Credenciales inválidas",
+            },
+            old: req.body,
+          },
+        });
       }
+
+
+    } else {
+      return res.render("users/login", {
+        errors: resultValidation.mapped(),
+        old: req.body,
+      });
+    }
     } catch (error) {
       console.log(error);
       

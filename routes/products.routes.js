@@ -13,6 +13,7 @@ router.get("/detail/:id",productsController.detail);
 router.get("/cart", guestAuth,productsController.cart);
 router.get("/add", guestAuth,productsController.addPage);
 router.post("/add", guestAuth,uploadProd.single("image"), productsController.create);
+// router.post("/add", guestAuth,uploadProd.any("image"), productsController.create);
 router.get("/edit/:id", guestAuth,productsController.editPage);
 router.put("/edit/:id", guestAuth,uploadProd.single("image"), productsController.update);
 router.delete("/delete/:id", productsController.destroy);

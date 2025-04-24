@@ -12,18 +12,14 @@ window.onload = () => {
 
       if (validator.isEmpty(email)) {
         errors.push("Debes ingresar un email");
-      }
-  
-      if (!validator.isEmail(email)) {
+      }else if (!validator.isEmail(email)) {
         errors.push("El formato de email no es correcto");
       }
   
       if (validator.isEmpty(password)) {
-        errors.push("Debes ingresar un password");
-      }
-  
-      if (!validator.isLength(password, { min: 3 })) {
-        errors.push("El password debe tener al menos 4 caracteres");
+        errors.push("Debes ingresar una contraseña");
+      }else if (!validator.isLength(password, { min: 7 })) {
+        errors.push("La contraseña debe tener al menos 8 caracteres");
       }
   
       if (errors.length > 0) {

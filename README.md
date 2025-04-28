@@ -57,3 +57,17 @@ npm start
 ```
 sequelize db:seed:all
 ```
+
+- Usuarios existentes:
+
+```
+email: test@gmail.com
+password: 12345678
+//ADMIN
+```
+
+```
+email: test2@gmail.com
+password: 12345678
+//SELLER
+```

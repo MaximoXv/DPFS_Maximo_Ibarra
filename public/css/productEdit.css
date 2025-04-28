@@ -275,6 +275,37 @@
   cursor: pointer;
 }
 
+._body ._main ._form-container ._errors{
+  flex-direction: column;
+  align-items: center;
+  background-color: #f3f3f39f;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  gap: 0.2rem;
+  box-shadow: 0px 0px 10px 0px var(--black-color);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+._body ._main ._form-container ._errors span{
+  color: var(--red-color);
+}
+
+
+p.error{
+  color: var(--red-color);
+  margin: 0;
+}
+
+._display-none{
+  display: none;
+}
+._display-flex{
+  display: flex;
+}
+
+
 
 @media (max-width: 576px) {
   html {

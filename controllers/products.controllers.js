@@ -35,10 +35,6 @@ const productsController = {
         try {
           const resultValidation = validationResult(req);
       if(resultValidation.isEmpty()){
-
-      
-
-
             const {
               name,
               description,
@@ -118,16 +114,54 @@ const productsController = {
             const genresDB = await db.Genre.findAll();
             const branchesDB = await db.Branch.findAll();
             const colorsDB = await db.Color.findAll();
-            res.render("products/edit.ejs", {productFound,seasonsDB,agesDB,sizesDB,genresDB,branchesDB,colorsDB});
+            res.render("products/edit.ejs", {productFound,seasonsDB,agesDB,sizesDB,genresDB,branchesDB,colorsDB,old: null});
         } catch (error) {
             console.log(error);
         }
     },
     update: async(req,res)=>{
-        try {
-            const { id } = req.params;
-        
-            const {
+      try {
+          const { id } = req.params;
+  
+          const resultValidation = validationResult(req);
+          
+          if (!resultValidation.isEmpty()) {
+            const seasonsDB = await db.Season.findAll();
+            const agesDB = await db.Age.findAll();
+            const sizesDB = await db.Size.findAll();
+            const genresDB = await db.Genre.findAll();
+            const branchesDB = await db.Branch.findAll();
+            const colorsDB = await db.Color.findAll();
+          
+            const productFound = await db.Product.findOne({
+              where: {
+                id: req.params.id
+              },
+              include: [
+                { model: db.Season, as: "season" },
+                { model: db.Age, as: "age" },
+                { model: db.Genre, as: "genre" },
+                { model: db.Branch, as: "branch" },
+                { model: db.Image, through: { attributes: [] } },
+                { model: db.Color, through: { attributes: [] } },
+                { model: db.Size, through: { attributes: [] } },
+              ]
+            });
+          
+            return res.render("products/edit", {
+              productFound,
+              seasonsDB,
+              agesDB,
+              sizesDB,
+              genresDB,
+              branchesDB,
+              colorsDB,
+              old: req.body,
+              errors: resultValidation.mapped()
+            });
+          }
+  
+          const {
               name,
               description,
               model,
@@ -139,13 +173,16 @@ const productsController = {
               season_id,
               branch_id,
               colors,
-              sizes 
-            } = req.body;
-        
-            const product = await db.Product.findByPk(id);
-        
+              sizes
+          } = req.body;
+          
+          const product = await db.Product.findByPk(id);
 
-            await product.update({
+          if (!product) {
+              return res.status(404).send("Producto no encontrado");
+          }
+  
+          await product.update({
               name,
               description,
               model,
@@ -156,32 +193,36 @@ const productsController = {
               age_id,
               season_id,
               branch_id
-            });
-        
-        
-            if (colors && colors.length > 0) {
+          });
+  
+          if (colors && colors.length > 0) {
               await product.setColors(colors); 
-            }
-        
-            if (sizes && sizes.length > 0) {
+          }
+  
+          if (sizes && sizes.length > 0) {
               await product.setSizes(sizes); 
-            }
+          }
+  
 
-            if (req.file) {
-                const image = await db.Image.create({
-                  url: req.file.filename
-                });
-          
-                await product.addImage(image);
+          if (req.file) {
+              const previousImage = await product.getImages();
+              if (previousImage && previousImage.length > 0) {
+                  await previousImage[0].destroy();
               }
 
-            res.redirect("/");
-          } catch (error) {
-            console.log(error);
+              const image = await db.Image.create({
+                  url: req.file.filename
+              });
+              
+              await product.addImage(image);
           }
-
-        
-    },
+  
+          res.redirect("/");
+  
+      } catch (error) {
+          console.log(error);
+      }
+  },
     destroy: async(req,res)=>{
         try {
 

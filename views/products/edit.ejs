@@ -8,130 +8,161 @@
                 <section class="_section-1">
                     <h1 class="_title">Editar producto</h1>
                     <div class="_form-container">
-                        <form action="/products/edit/<%= productFound.id %>?__method=PUT" method="post" enctype="multipart/form-data" class="_form">
+                        <form action="/products/edit/<%= productFound.id %>?__method=PUT" method="post"
+                            enctype="multipart/form-data" class="_form">
                             <div class="_divition-1">
+                                <div class="_errors <%= locals.errors ? " _display-flex" : "_display-none" %>">
+                                    <% if (locals.errors) { %>
+                                        <% for (const key of Object.keys(locals.errors)) { %>
+                                            <span class="error">
+                                                <%= locals.errors[key].msg %>
+                                            </span>
+                                            <% } %>
+                                                <% } %>
+                                </div>
                                 <div class="_form-section">
                                     <h2 class="_title-section">Información básica</h2>
                                     <div class="_form-group">
                                         <label for="name">Nombre</label>
                                         <input class="_input" type="text" name="name" id="name"
-                                            placeholder="Nombre del producto" value="<%= productFound.name %>"/>
+                                            placeholder="Nombre del producto"
+                                            value="<%= locals.old?.name !== undefined ? locals.old.name : productFound.name %>" />
+                                            <p class="error _display-none"></p>
                                     </div>
                                     <div class="_form-double-group">
                                         <div class="_form-group">
                                             <label for="branch_id">Marca</label>
                                             <select class="_select" name="branch_id" id="branch_id">
-                                                <% branchesDB.forEach(branch => { %>
-                                                    <option value="<%= branch.id %>" <%= productFound.branch.id==branch.id?"selected":"" %>><%= branch.name %></option>
-                                                <% }) %>
+                                                <option value="" disabled <%= !locals.old?.branch_id && !productFound.branch?.id ? "selected" : "" %>>Seleccione una opción</option>
+                                                <% branchesDB.forEach(branch=> { %>
+                                                    <option value="<%= branch.id %>" <%= locals.old?.branch_id == branch.id ? "selected" : (locals.old === null && productFound.branch.id == branch.id ? "selected" : "") %>><%=
+                                                            branch.name %>
+                                                    </option>
+                                                    <% }) %>
                                             </select>
+                                            <p class="error _display-none"></p>
                                         </div>
                                         <div class="_form-group">
                                             <label for="model">Modelo</label>
                                             <input class="_input" type="text" name="model" id="model"
-                                                placeholder="Modelo del producto" value="<%= productFound.model %>"/>
+                                                placeholder="Modelo del producto"
+                                                value="<%= locals.old?.model !== undefined ? locals.old.model : productFound.model %>" />
+                                                <p class="error _display-none"></p>
                                         </div>
                                     </div>
                                     <div class="_form-group">
                                         <label for="description">Descripción</label>
                                         <textarea class="_textarea" name="description" id="description"
-                                            placeholder="Descripción" rows="4" cols="50"><%= productFound.description %></textarea>
+                                            placeholder="Descripción" rows="4"
+                                            cols="50"><%= locals.old?.description !== undefined ? locals.old.description : productFound.description %></textarea>
+                                            <p class="error _display-none"></p>
                                     </div>
                                 </div>
                                 <div class="_form-section">
-                                    <h2  class="_title-section">Stock y precio</h2>
+                                    <h2 class="_title-section">Stock y precio</h2>
                                     <div class="_form-double-group">
                                         <div class="_form-group">
                                             <label for="price">Precio</label>
                                             <input class="_input" type="number" name="price" id="price"
-                                                placeholder="Precio del producto" value="<%= productFound.price %>"/>
+                                                placeholder="Precio del producto"
+                                                value="<%= locals.old?.price !== undefined ? locals.old.price : productFound.price %>" />
+                                                <p class="error _display-none"></p>
                                         </div>
                                         <div class="_form-group">
                                             <label for="stock">Stock</label>
                                             <input class="_input" type="number" name="stock" id="stock"
-                                                placeholder="Stock del producto" value="<%= productFound.stock %>"/>
+                                                placeholder="Stock del producto"
+                                                value="<%= locals.old?.stock !== undefined ? locals.old.stock : productFound.stock %>" />
+                                                <p class="error _display-none"></p>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="_form-section">
-                                    <h2  class="_title-section">Categorias y detalles</h2>
+                                    <h2 class="_title-section">Categorias y detalles</h2>
                                     <div class="_form-triple-group">
                                         <div class="_form-group">
                                             <label for="season_id">Estación</label>
                                             <select class="_select" name="season_id" id="season_id">
-                                                <% seasonsDB.forEach(season => { %>
-                                                    <option value="<%= season.id %>" <%= productFound.season.id==season.id?"selected":"" %>><%= season.name %></option>
-                                                <% }) %>
+                                                <option value="" disabled <%= !locals.old?.season_id && !productFound.season?.id ? "selected" : "" %>>Seleccione una opción</option>
+                                                <% seasonsDB.forEach(season=> { %>
+                                                    <option value="<%= season.id %>" <%= locals.old?.season_id == season.id ? "selected" : (locals.old === null && productFound.season.id == season.id ? "selected" : "") %>><%=
+                                                            season.name %>
+                                                    </option>
+                                                    <% }) %>
                                             </select>
+                                            <p class="error _display-none"></p>
                                         </div>
                                         <div class="_form-group">
                                             <label for="age_id">Rango de edad</label>
                                             <select class="_select" name="age_id" id="age_id">
-                                                <% agesDB.forEach(age => { %>
-                                                    <option value="<%= age.id %>" <%= productFound.age.id==age.id?"selected":"" %>><%= age.name %></option>
-                                                <% }) %>
+                                                <option value="" disabled <%= !locals.old?.age_id && !productFound.age?.id ? "selected" : "" %>>Seleccione una opción</option>
+                                                <% agesDB.forEach(age=> { %>
+                                                    <option value="<%= age.id %>" <%= locals.old?.age_id == age.id ? "selected" : (locals.old === null && productFound.age.id == age.id ? "selected" : "") %>><%= age.name %>
+                                                    </option>
+                                                    <% }) %>
                                             </select>
+                                            <p class="error _display-none"></p>
                                         </div>
                                         <div class="_form-group">
                                             <label for="genre_id">Genero</label>
                                             <select class="_select" name="genre_id" id="genre_id">
-                                                <% genresDB.forEach(genre => { %>
-                                                    <option value="<%= genre.id %>" <%= productFound.genre.id==genre.id?"selected":"" %>><%= genre.name %></option>
-                                                <% }) %>
+                                                <option value="" disabled <%= !locals.old?.genre_id && !productFound.genre?.id ? "selected" : "" %>>Seleccione una opción</option>
+                                                <% genresDB.forEach(genre=> { %>
+                                                    <option value="<%= genre.id %>" <%= locals.old?.genre_id == genre.id ? "selected" : (locals.old === null && productFound.genre.id == genre.id ? "selected" : "") %>><%=
+                                                            genre.name %>
+                                                    </option>
+                                                    <% }) %>
                                             </select>
+                                            <p class="error _display-none"></p>
                                         </div>
                                     </div>
                                     <div class="_form-group">
                                         <label for="colors">Colores</label>
                                         <div class="_checkbox-container">
-                                            <% colorsDB.forEach((color, index) => { %>
+                                            <% colorsDB.forEach((color, index)=> { %>
                                                 <div class="_checkbox-box">
-                                                    <input 
-                                                    type="checkbox" 
-                                                    name="colors[]" 
-                                                    id="color<%= index + 1 %>" 
-                                                    value="<%= color.id %>" 
-                                                    <%= productFound.Colors.some(c=>c.value==color.value) ? "checked" : "" %>
+                                                    <input type="checkbox" name="colors" id="color<%= index + 1 %>"
+                                                        value="<%= color.id %>"
+                                                        <%=(old?.colors?.includes(String(color.id)) || (!old &&
+                                                        productFound.Colors.some(c=> c.id == color.id))) ? "checked" :
+                                                    "" %>
                                                     />
-                                                    <label 
-                                                    class="_checkbox-label" 
-                                                    for="color<%= index + 1 %>" 
-                                                    style="background-color: <%= color.value %>">
-                                                </label>
+
+                                                    <label class="_checkbox-label" for="color<%= index + 1 %>"
+                                                        style="background-color: <%= color.value %>">
+                                                    </label>
                                                 </div>
-                                            <% }) %>
+                                                <% }) %>
 
                                         </div>
-                                        
+                                        <p class="error _display-none"></p>
+
                                     </div>
                                     <div class="_form-group">
                                         <label for="sizes">Talles</label>
                                         <div class="_checkbox-container">
-                                            <% sizesDB.forEach((size, index) => { %>
+                                            <% sizesDB.forEach((size, index)=> { %>
                                                 <div class="_checkbox-box">
-                                                    <input 
-                                                        type="checkbox" 
-                                                        name="sizes[]" 
-                                                        id="size<%= index + 1 %>" 
-                                                        value="<%= size.id %>" 
-                                                        <%= productFound.Sizes.some(s=>s.name==size.name) ? "checked" : "" %>
+                                                    <input type="checkbox" name="sizes" id="size<%= index + 1 %>"
+                                                        value="<%= size.id %>" <%=(old?.sizes?.includes(String(size.id))
+                                                        || (!old && productFound.Sizes.some(s=> s.id == size.id))) ?
+                                                    "checked" : "" %>
                                                     />
-                                                    <label 
-                                                        class="_checkbox-label" 
-                                                        for="size<%= index + 1 %>">
+                                                    <label class="_checkbox-label" for="size<%= index + 1 %>">
                                                         <%= size.name %>
                                                     </label>
                                                 </div>
-                                            <% }) %>
+                                                <% }) %>
 
                                         </div>
-                                        
+                                        <p class="error _display-none"></p>
+
                                     </div>
 
 
-                                    
+
                                 </div>
 
                             </div>
@@ -142,17 +173,22 @@
                                         <div class="_input-file-container">
                                             <i class="fa-solid fa-camera"></i>
                                             <span>Seleccionar imagen</span>
-                                            <input class="_input-file" type="file" name="image" id="image" accept=".png, .jpg, .jpeg"/>
+                                            <input class="_input-file" type="file" name="image" id="image"
+                                                accept=".png, .jpg, .jpeg" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="_form-section">
-                                    <h2  class="_title-section">Visibilidad</h2>
+                                    <h2 class="_title-section">Visibilidad</h2>
                                     <div class="_form-group">
                                         <select class="_select" name="visibility" id="visibility">
-                                            <option value="0" <%= productFound.visibility==0?"selected":"" %>>Oculto</option>
-                                            <option value="1" <%= productFound.visibility==1?"selected":"" %>>Publico</option>
+                                            <option value="" disabled <%= !locals.old?.visibility && productFound.visibility === undefined ? "selected" : "" %>>Seleccione una opción</option>
+                                            <option value="0" <%=locals.old?.visibility==0 || (!locals.old &&
+                                                productFound.visibility==0) ? "selected" : "" %>>Oculto</option>
+                                            <option value="1" <%=locals.old?.visibility==1 || (!locals.old &&
+                                                productFound.visibility==1) ? "selected" : "" %>>Público</option>
                                         </select>
+                                        <p class="error _display-none"></p>
                                     </div>
                                 </div>
                                 <button type="submit" class="_button-submit">Editar producto</button>
@@ -164,6 +200,9 @@
             </main>
 
             <%- include("../partials/footer.ejs") %>
+
+            <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+                <script src="/js/validations/edit.js"></script>
     </body>
 
 </html>

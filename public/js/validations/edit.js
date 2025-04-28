@@ -24,7 +24,7 @@ window.onload = () => {
     const selectedSizes = [...form.querySelectorAll('input[name="sizes"]:checked')].map(check => check.value);
 
     const imageInput = form.querySelector('input[name="image"]');
-      const imageFile = imageInput.files[0]; // Obtenemos el archivo
+      const imageFile = imageInput.files[0];
 
       const visibility = form.visibility.value;
 
@@ -38,7 +38,7 @@ window.onload = () => {
       } else if (!validator.isLength(name, { min: 5 })) {
         errors.name = "El nombre debe tener al menos 5 caracteres";
       }
-      
+  
       if (validator.isEmpty(branch_id)) {
         errors.branch_id = "Debe seleccionar una marca";
       }
@@ -91,9 +91,7 @@ window.onload = () => {
         errors.sizes = "Debe seleccionar al menos un talle";
       }
 
-      if (!imageFile) {
-        errors.image = "Debe seleccionar una imagen";
-      } else {
+      if (imageFile) {
         const allowedTypes = ["image/jpeg", "image/png", "image/jpg", "image/webp", "image/gif"];
         if (!allowedTypes.includes(imageFile.type)) {
           errors.image = "El formato de imagen no es válido";

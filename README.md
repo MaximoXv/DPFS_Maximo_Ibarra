@@ -1,8 +1,8 @@
 # Clostore
- - Este proyecto va destinado a la venta de ropa para niños, adolecentes y adultos en Argentina.
 
- - Soy Máximo Ibarra, un estudiante de 22 años en mi camino a volverme un desarrollador web profesional.
- 
+- Este proyecto va destinado a la venta de ropa para niños, adolecentes y adultos en Argentina.
+
+- Soy Máximo Ibarra, un estudiante de 22 años en mi camino a volverme un desarrollador web profesional.
 
 ### Paginas de referencia
 
@@ -33,4 +33,27 @@
 
 [Trello](https://trello.com/b/emik3fvF/dpfsmaximoibarra)
 
-#### Máximo Rubén Ibarra Vargas 
+#### Máximo Rubén Ibarra Vargas
+
+# Instrucciones
+
+- Crear la base de datos
+
+```
+sequelize db:create
+```
+
+- Sincronizar los modelos para que se creen las tablas.
+
+- En `app.js` hay que descomentar `// await db.sequelize.sync({force: true});` y luego correr
+
+```
+npm start
+```
+
+- Volver a comentar `await db.sequelize.sync({force: true});`
+- Para correr los seeds hay que correr el siguiente comando
+
+```
+sequelize db:seed:all
+```

@@ -1,7 +1,7 @@
 let fs = require("fs")
 let path = require("path");
 const db = require("../database/models");
-const { where } = require("sequelize");
+const { validationResult } = require("express-validator");
 
 
 const productsController = {
@@ -33,6 +33,11 @@ const productsController = {
     },
     create: async(req,res)=>{
         try {
+          const resultValidation = validationResult(req);
+      if(resultValidation.isEmpty()){
+
+      
+
 
             const {
               name,
@@ -80,7 +85,20 @@ const productsController = {
             }
         
             res.redirect("/");
-        
+          }else{
+
+            const seasonsDB = await db.Season.findAll();
+            const agesDB = await db.Age.findAll();
+            const sizesDB = await db.Size.findAll();
+            const genresDB = await db.Genre.findAll();
+            const branchesDB = await db.Branch.findAll();
+            const colorsDB = await db.Color.findAll();
+            return res.render("products/add", {
+              seasonsDB,agesDB,sizesDB,genresDB,branchesDB,colorsDB,
+              errors: resultValidation.mapped(),
+              old: req.body,
+            });
+          }
           } catch (error) {
             console.log(error);
             

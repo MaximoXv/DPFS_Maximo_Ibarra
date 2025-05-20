@@ -11,8 +11,11 @@ const cors = require("cors");
 const db = require("./database/models");
 
 const indexRouter = require("./routes/index.routes");
+const indexApiRouter = require("./routes/index.api.routes");
 const usersRouter = require("./routes/users.routes");
+const usersApiRouter = require("./routes/users.api.routes");
 const productsRouter = require("./routes/products.routes");
+const productsApiRouter = require("./routes/products.api.routes");
 
 //view engine
 app.set("view engine", "ejs")
@@ -37,8 +40,11 @@ app.use(session({
 app.use(userLogged)
 
 app.use("/",indexRouter)
+app.use("/api",indexApiRouter)
 app.use("/users",usersRouter)
+app.use("/api",usersApiRouter)
 app.use("/products",productsRouter)
+app.use("/api",productsApiRouter)
 
 app.use(function(req,res){
     res.status(404).render("not-found.ejs")
